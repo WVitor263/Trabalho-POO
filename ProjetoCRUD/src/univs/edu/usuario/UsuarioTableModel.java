@@ -7,7 +7,7 @@ import javax.swing.table.AbstractTableModel;
 public class UsuarioTableModel extends AbstractTableModel {
 
     private List<Usuario> usuarios = new ArrayList<>();
-    private String[] colunas = {"Id", "Nome", "Login", "Senha"};
+    private String[] colunas = {"Id", "Nome", "Email", "Senha", "Cidade", " Rua", "N°"};
 
     public UsuarioTableModel(List<Usuario> usuarios) {
         this.usuarios = usuarios;
@@ -32,9 +32,15 @@ public class UsuarioTableModel extends AbstractTableModel {
             case 1:
                 return usuario.getNomeUsuario();
             case 2:
-                return usuario.getLogin();
+                return usuario.getEmail();
             case 3:
                 return usuario.getSenha();
+            case 4 :
+                return usuario.getCidadeUsuario();
+            case 5:
+                return usuario.getRuaUsuario();
+            case 6:
+                return usuario.getNumeroUsuario();
         }
         return null;
     }
@@ -49,6 +55,15 @@ public class UsuarioTableModel extends AbstractTableModel {
                 return colunas[2];
             case 3:
                 return colunas[3];
+             case 4:
+                return colunas[4];
+             case 5:
+                return colunas[5];
+             case 6:
+                return colunas[6];
+
+
+
 
         }
         return null;

@@ -11,12 +11,24 @@ public class Usuario {
     @Id
     @GeneratedValue
  private int idUsuario;
+    
     @Column(length = 100, nullable = false)
   private String nomeUsuario;
+    
       @Column(length = 100, nullable = false)
-  private String login;
+  private String email;
+      
           @Column(length = 100, nullable = false)
   private String senha;
+          
+          @Column(length = 100, nullable = false)
+  private String ruaUsuario;
+          
+          @Column(length = 100, nullable = false)
+  private String cidadeUsuario;
+          
+          @Column(length = 100, nullable = false)
+  private String numeroUsuario;
 
     public int getIdUsuario() {
         return idUsuario;
@@ -34,12 +46,12 @@ public class Usuario {
         this.nomeUsuario = nomeUsuario;
     }
 
-    public String getLogin() {
-        return login;
+    public String getEmail() {
+        return email;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getSenha() {
@@ -48,5 +60,29 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getRuaUsuario() {
+        return ruaUsuario;
+    }
+
+    public void setRuaUsuario(String ruaUsuario) {
+        this.ruaUsuario = ruaUsuario;
+    }
+
+    public String getCidadeUsuario() {
+        return cidadeUsuario;
+    }
+
+    public void setCidadeUsuario(String cidadeUsuario) {
+        this.cidadeUsuario = cidadeUsuario;
+    }
+
+    public String getNumeroUsuario() {
+        return numeroUsuario;
+    }
+
+    public void setNumeroUsuario(String numeroUsuario) {
+        this.numeroUsuario = numeroUsuario;
     }
 }
