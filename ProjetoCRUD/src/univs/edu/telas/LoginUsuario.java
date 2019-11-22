@@ -141,7 +141,9 @@ public class LoginUsuario extends javax.swing.JFrame {
 if( tfSenha2.getText().isEmpty() || tfEmail2.getText().isEmpty()){
     JOptionPane.showMessageDialog(null, "Preencha todos os Campos");
 }else if(tfSenha2.equals(usuario.getSenha())&&tfEmail2.equals(usuario.getEmail())){
-    
+    PaginaUsuario inicial = new PaginaUsuario();
+    inicial.setVisible(true);
+    dispose();
 }       
         
     }//GEN-LAST:event_jButton1ActionPerformed
