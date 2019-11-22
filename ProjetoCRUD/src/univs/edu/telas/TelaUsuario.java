@@ -244,10 +244,14 @@ public void atualizarCamposConsulata(){
                 dao.editarUsuario(usuario);
                 JOptionPane.showMessageDialog(null, "Usuario editado!");
             }else{
-            dao.salvar(usuario);
-            JOptionPane.showMessageDialog(null, "Usuario cadastrado !");
+                dao.salvar(usuario);
+                JOptionPane.showMessageDialog(null, "Usuario cadastrado!");
+            
+                LoginUsuario login = new LoginUsuario();
+                login.setVisible(true);
+                dispose();
             }
-            limparCampos();
+            
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -258,8 +262,8 @@ public void atualizarCamposConsulata(){
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        ConsultaUsuario consulta = new ConsultaUsuario();
-        consulta.setVisible(true);
+        LoginUsuario login = new LoginUsuario();
+        login.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
