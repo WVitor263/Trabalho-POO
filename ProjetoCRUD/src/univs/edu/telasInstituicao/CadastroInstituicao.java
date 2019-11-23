@@ -5,8 +5,9 @@
  */
 package univs.edu.telasInstituicao;
 
+import javax.swing.JOptionPane;
 import univs.edu.instituicao.Instituicao;
-import univs.edu.usuario.UsuarioDAO;
+import univs.edu.instituicao.InstituicaoDAO;
 
 
 
@@ -17,7 +18,7 @@ import univs.edu.usuario.UsuarioDAO;
 public class CadastroInstituicao extends javax.swing.JFrame {
 
     Instituicao instituicao = new Instituicao();
-    UsuarioDAO dao = new UsuarioDAO();
+    InstituicaoDAO dao = new InstituicaoDAO();
     /**
      * Creates new form CadastroInstituicao
      */
@@ -109,6 +110,11 @@ public class CadastroInstituicao extends javax.swing.JFrame {
         });
 
         jButton2.setText("Salvar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Limpar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -227,6 +233,25 @@ public class CadastroInstituicao extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         limparCampos();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(tfEmailInstituicao.getText(). isEmpty()||tfNomeInstituicao.getText(). isEmpty()||
+ tfCidadeInstituicao.getText(). isEmpty()||tfRuaInstituicao.getText(). isEmpty()||tfSenhaInstituicao.getText(). isEmpty()
+||tfTelefone.getText(). isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha todos os Campos");
+            
+        }else{
+            instituicao.setEmail(tfEmailInstituicao.getText());
+            instituicao.setCidadeInstituicao(tfCidadeInstituicao.getText());
+            instituicao.setNomeInstituicao(tfNomeInstituicao.getText());
+            instituicao.setRuaInstituicao(tfRuaInstituicao.getText()); 
+            instituicao.setSenha(tfSenhaInstituicao.getText());
+            instituicao.setTelefone(tfTelefone.getText());
+            dao.salvar(instituicao);
+            limparCampos();
+            
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
