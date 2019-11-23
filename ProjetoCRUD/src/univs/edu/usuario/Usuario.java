@@ -1,4 +1,3 @@
-
 package univs.edu.usuario;
 
 import javax.persistence.Column;
@@ -8,27 +7,28 @@ import javax.persistence.Id;
 
 @Entity
 public class Usuario {
+
     @Id
     @GeneratedValue
- private int idUsuario;
-    
+    private int idUsuario;
+
     @Column(length = 100, nullable = false)
-  private String nomeUsuario;
-    
-      @Column(length = 100, nullable = false)
-  private String email;
-      
-          @Column(length = 100, nullable = false)
-  private String senha;
-          
-          @Column(length = 100, nullable = false)
-  private String ruaUsuario;
-          
-          @Column(length = 100, nullable = false)
-  private String cidadeUsuario;
-          
-          @Column(length = 100, nullable = false)
-  private String numeroUsuario;
+    private String nomeUsuario;
+
+    @Column(length = 100, nullable = false)
+    private String email;
+
+    @Column(length = 100, nullable = false)
+    private String senha;
+
+    @Column(length = 100, nullable = false)
+    private String ruaUsuario;
+
+    @Column(length = 100, nullable = false)
+    private String cidadeUsuario;
+
+    @Column(length = 100, nullable = false)
+    private String numeroUsuario;
 
     public int getIdUsuario() {
         return idUsuario;

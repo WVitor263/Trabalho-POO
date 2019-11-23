@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package univs.edu.telas;
+package univs.edu.telasUsuairo;
 
 import javax.swing.JOptionPane;
 import univs.edu.usuario.Usuario;

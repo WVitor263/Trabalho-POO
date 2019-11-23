@@ -1,4 +1,3 @@
-
 package univs.edu.usuario;
 
 import java.util.List;
@@ -6,54 +5,67 @@ import javax.swing.JOptionPane;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
+import univs.edu.instituicao.Instituicao;
 import univs.edu.util.HibernateUtil;
 
-
 public class UsuarioDAO {
+
     private Session sessao;
     private Transaction transacao;
-    
-    public void salvar(Usuario usuario){
+
+    public void salvar(Usuario usuario) {
         sessao = HibernateUtil.getSessionFactory().openSession();
         transacao = sessao.beginTransaction();
-        if(usuario.getIdUsuario() ==0){
-        sessao.save(usuario);
-       JOptionPane.showMessageDialog(null, "Usuario Cadastrado");
-    }else{
-        sessao.update(usuario);
-        JOptionPane.showMessageDialog(null, "Usuario Editado");
+        if (usuario.getIdUsuario() == 0) {
+            sessao.save(usuario);
+            JOptionPane.showMessageDialog(null, "Usuario Cadastrado");
+        } else {
+            sessao.update(usuario);
+            JOptionPane.showMessageDialog(null, "Usuario Editado");
         }
         transacao.commit();
         sessao.close();
     }
-     public void excluir(Usuario usuario){
+
+    public void excluir(Usuario usuario) {
         sessao = HibernateUtil.getSessionFactory().openSession();
         transacao = sessao.beginTransaction();
         sessao.delete(usuario);
         transacao.commit();
         sessao.close();
     }
-     public Usuario pesquisar(int id){
-         sessao = HibernateUtil.getSessionFactory().openSession();
+
+    public Usuario pesquisar(int id) {
+        sessao = HibernateUtil.getSessionFactory().openSession();
         transacao = sessao.beginTransaction();
         Usuario usuario = (Usuario) sessao.createCriteria(Usuario.class).add(Restrictions.eq("idUsuario", id)).uniqueResult();
         sessao.close();
         return usuario;
-        
-     }
-      public List<Usuario> pesquisar(){
-         sessao = HibernateUtil.getSessionFactory().openSession();
+
+    }
+
+    public List<Usuario> pesquisar() {
+        sessao = HibernateUtil.getSessionFactory().openSession();
         transacao = sessao.beginTransaction();
         List<Usuario> usuarios = sessao.createCriteria(Usuario.class).list();
         return usuarios;
-        
-     }
-      public void editarUsuario(Usuario usuario){
-          sessao = HibernateUtil.getSessionFactory().openSession();
+
+    }
+    
+    public List<Instituicao> pesquisar1() {
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        transacao = sessao.beginTransaction();
+        List<Instituicao> instituicoes = sessao.createCriteria(Instituicao.class).list();
+        return instituicoes;
+
+    }
+
+    public void editarUsuario(Usuario usuario) {
+        sessao = HibernateUtil.getSessionFactory().openSession();
         transacao = sessao.beginTransaction();
         sessao.update(usuario);
         transacao.commit();
         sessao.close();
-      }
-     
+    }
+
 }

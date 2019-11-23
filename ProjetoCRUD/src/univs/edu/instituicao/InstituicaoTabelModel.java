@@ -1,21 +1,22 @@
-package univs.edu.usuario;
+package univs.edu.instituicao;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
-public class UsuarioTableModel extends AbstractTableModel {
+public class InstituicaoTabelModel extends AbstractTableModel {
 
-    private List<Usuario> usuarios = new ArrayList<>();
-    private String[] colunas = {"Id", "Nome", "Email", "Senha", "Cidade", " Rua", "N°"};
+    private List<Instituicao> instituicoes = new ArrayList<>();
+    private String[] colunas = {"Id", "Nome", "Email", "Senha", "Cidade", " Rua", "Telefone"};
+    
 
-    public UsuarioTableModel(List<Usuario> usuarios) {
-        this.usuarios = usuarios;
+    public InstituicaoTabelModel(List<Instituicao> instituicoes) {
+        this.instituicoes = instituicoes;
     }
 
     @Override
     public int getRowCount() {
-        return usuarios.size();
+        return instituicoes.size();
     }
 
     @Override
@@ -25,26 +26,27 @@ public class UsuarioTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Usuario usuario = usuarios.get(rowIndex);
+        Instituicao instituicao = instituicoes.get(rowIndex);
         switch (columnIndex) {
             case 0:
-                return usuario.getIdUsuario();
+                return instituicao.getIdInstituicao();
             case 1:
-                return usuario.getNomeUsuario();
+                return instituicao.getNomeInstituicao();
             case 2:
-                return usuario.getEmail();
+                return instituicao.getEmail();
             case 3:
-                return usuario.getSenha();
+                return instituicao.getSenha();
             case 4:
-                return usuario.getCidadeUsuario();
+                return instituicao.getCidadeInstituicao();
             case 5:
-                return usuario.getRuaUsuario();
+                return instituicao.getRuaInstituicao();
             case 6:
-                return usuario.getNumeroUsuario();
+                return instituicao.getTelefone();
         }
         return null;
     }
 
+    @Override
     public String getColumnName(int index) {
         switch (index) {
             case 0:
@@ -61,7 +63,6 @@ public class UsuarioTableModel extends AbstractTableModel {
                 return colunas[5];
             case 6:
                 return colunas[6];
-
         }
         return null;
     }
