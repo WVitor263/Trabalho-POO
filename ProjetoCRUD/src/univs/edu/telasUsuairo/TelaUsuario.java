@@ -229,18 +229,10 @@ public void atualizarCamposConsulata(){
             usuario.setRuaUsuario(tfRua.getText());
             usuario.setNumeroUsuario(tfNumero.getText());
             
-            if(usuario.getIdUsuario()!=0){
-                dao.editarUsuario(usuario);
-                JOptionPane.showMessageDialog(null, "Usuario editado!");
-            }else{
-                dao.salvar(usuario);
-                JOptionPane.showMessageDialog(null, "Usuario cadastrado!");
             
-                LoginUsuario login = new LoginUsuario();
+            LoginUsuario login = new LoginUsuario();
                 login.setVisible(true);
                 dispose();
-            }
-            
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

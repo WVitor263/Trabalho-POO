@@ -5,7 +5,6 @@ import javax.swing.JOptionPane;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
-import univs.edu.instituicao.Instituicao;
 import univs.edu.util.HibernateUtil;
 
 public class UsuarioDAO {
@@ -50,22 +49,6 @@ public class UsuarioDAO {
         List<Usuario> usuarios = sessao.createCriteria(Usuario.class).list();
         return usuarios;
 
-    }
-    
-    public List<Instituicao> pesquisar1() {
-        sessao = HibernateUtil.getSessionFactory().openSession();
-        transacao = sessao.beginTransaction();
-        List<Instituicao> instituicoes = sessao.createCriteria(Instituicao.class).list();
-        return instituicoes;
-
-    }
-
-    public void editarUsuario(Usuario usuario) {
-        sessao = HibernateUtil.getSessionFactory().openSession();
-        transacao = sessao.beginTransaction();
-        sessao.update(usuario);
-        transacao.commit();
-        sessao.close();
     }
 
 }
