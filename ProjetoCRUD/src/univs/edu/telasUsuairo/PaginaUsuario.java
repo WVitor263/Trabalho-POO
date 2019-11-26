@@ -78,7 +78,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         EditarUsuario editar = new EditarUsuario();
-        editar.usuario =;
+    
         editar.atualizarCampos();
         editar.setVisible(true);
         dispose();

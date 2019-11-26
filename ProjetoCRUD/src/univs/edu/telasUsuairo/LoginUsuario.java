@@ -6,6 +6,7 @@
 package univs.edu.telasUsuairo;
 
 import javax.swing.JOptionPane;
+import univs.edu.telasInstituicao.LoginInstituicao;
 import univs.edu.usuario.Usuario;
 import univs.edu.usuario.UsuarioDAO;
 
@@ -23,6 +24,18 @@ public class LoginUsuario extends javax.swing.JFrame {
      */
     public LoginUsuario() {
         initComponents();
+    }
+
+    public void login(String email, String senha) {
+        String retorno = dao.email(email, senha);
+        String retorno1 = dao.senha(senha, email);
+        if (email.equals(retorno) && senha.equals(retorno1)) {
+            PaginaUsuario inicial = new PaginaUsuario();
+            inicial.setVisible(true);
+            dispose();
+        }else if(retorno == null || retorno1 == null){
+            JOptionPane.showMessageDialog(null, "Email ou senha incorretos!");
+        }
     }
 
     /**
@@ -86,6 +99,11 @@ public class LoginUsuario extends javax.swing.JFrame {
         });
 
         jButton3.setText("Entrar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
         jLabel7.setText("Entrar como instituição");
@@ -158,11 +176,11 @@ public class LoginUsuario extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (tfSenha2.getText().isEmpty() || tfEmail2.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os Campos");
-        } else if (tfSenha2.equals(usuario.getSenha()) && tfEmail2.equals(usuario.getEmail())) {
-            PaginaUsuario inicial = new PaginaUsuario();
-            inicial.setVisible(true);
-            dispose();
+        } else {
+            login(tfEmail2.getText(), tfSenha2.getText());
+
         }
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -175,6 +193,12 @@ public class LoginUsuario extends javax.swing.JFrame {
         cadastrar.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        LoginInstituicao login = new LoginInstituicao();
+        login.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

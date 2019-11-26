@@ -228,11 +228,15 @@ public void atualizarCamposConsulata(){
             usuario.setCidadeUsuario(tfCidade.getText());
             usuario.setRuaUsuario(tfRua.getText());
             usuario.setNumeroUsuario(tfNumero.getText());
-            
+            dao.salvar(usuario);
+           
             
             LoginUsuario login = new LoginUsuario();
                 login.setVisible(true);
                 dispose();
+                
+                JOptionPane.showMessageDialog(null, "Usuario Cadastrado");
+                
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
