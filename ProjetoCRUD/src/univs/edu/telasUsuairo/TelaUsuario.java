@@ -14,32 +14,34 @@ import univs.edu.usuario.UsuarioDAO;
  * @author LABORATORIO 01
  */
 public class TelaUsuario extends javax.swing.JFrame {
-    
- Usuario usuario = new Usuario();
- UsuarioDAO dao = new UsuarioDAO();
- 
- 
+
+    Usuario usuario = new Usuario();
+    UsuarioDAO dao = new UsuarioDAO();
+
     public TelaUsuario() {
         initComponents();
     }
-public void limparCampos(){
-    usuario = new Usuario();
-    tfNome.setText("");
-    tfEmail.setText("");
-    tfSenha.setText("");
-   tfCidade.setText("");
-   tfNumero.setText("");
-   tfRua.setText("");
-    
-}
-public void atualizarCamposConsulata(){
-    tfEmail.setText(usuario.getEmail());
-    tfSenha.setText(usuario.getSenha());
-    tfNome.setText(usuario.getNomeUsuario());
-    tfCidade.setText(usuario.getCidadeUsuario());
-    tfNumero.setText(usuario.getNumeroUsuario());
-    tfRua.setText(usuario.getRuaUsuario());
-}
+
+    public void limparCampos() {
+        usuario = new Usuario();
+        tfNome.setText("");
+        tfEmail.setText("");
+        tfSenha.setText("");
+        tfCidade.setText("");
+        tfNumero.setText("");
+        tfRua.setText("");
+
+    }
+
+    public void atualizarCamposConsulata() {
+        tfEmail.setText(usuario.getEmail());
+        tfSenha.setText(usuario.getSenha());
+        tfNome.setText(usuario.getNomeUsuario());
+        tfCidade.setText(usuario.getCidadeUsuario());
+        tfNumero.setText(usuario.getNumeroUsuario());
+        tfRua.setText(usuario.getRuaUsuario());
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -213,15 +215,15 @@ public void atualizarCamposConsulata(){
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       limparCampos();
-       
+        limparCampos();
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(tfNome.getText(). isEmpty() || tfSenha.getText().isEmpty() || tfEmail.getText().isEmpty() 
-                || tfCidade.getText().isEmpty()|| tfNumero.getText().isEmpty()|| tfRua.getText().isEmpty()){
+        if (tfNome.getText().isEmpty() || tfSenha.getText().isEmpty() || tfEmail.getText().isEmpty()
+                || tfCidade.getText().isEmpty() || tfNumero.getText().isEmpty() || tfRua.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
-        }else{
+        } else {
             usuario.setNomeUsuario(tfNome.getText());
             usuario.setEmail(tfEmail.getText());
             usuario.setSenha(tfSenha.getText());
@@ -229,14 +231,12 @@ public void atualizarCamposConsulata(){
             usuario.setRuaUsuario(tfRua.getText());
             usuario.setNumeroUsuario(tfNumero.getText());
             dao.salvar(usuario);
-           
-            
+
             LoginUsuario login = new LoginUsuario();
-                login.setVisible(true);
-                dispose();
-                
-                JOptionPane.showMessageDialog(null, "Usuario Cadastrado");
-                
+            login.setVisible(true);
+            dispose();
+
+
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

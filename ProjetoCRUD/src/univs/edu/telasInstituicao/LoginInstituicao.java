@@ -11,8 +11,6 @@ import univs.edu.instituicao.InstituicaoDAO;
 import univs.edu.telasUsuairo.LoginUsuario;
 import univs.edu.telasUsuairo.PaginaUsuario;
 
-
-
 /**
  *
  * @author Lucas007
@@ -21,7 +19,7 @@ public class LoginInstituicao extends javax.swing.JFrame {
 
     Instituicao instituicao = new Instituicao();
     InstituicaoDAO dao = new InstituicaoDAO();
-    
+
     public LoginInstituicao() {
         initComponents();
     }
@@ -30,10 +28,10 @@ public class LoginInstituicao extends javax.swing.JFrame {
         String retorno = dao.email(email, senha);
         String retorno1 = dao.senha(senha, email);
         if (email.equals(retorno) && senha.equals(retorno1)) {
-            PaginaUsuario inicial = new PaginaUsuario();
+            PaginaInstituicao inicial = new PaginaInstituicao();
             inicial.setVisible(true);
             dispose();
-        }else if(retorno == null || retorno1 == null){
+        } else if (retorno == null || retorno1 == null) {
             JOptionPane.showMessageDialog(null, "Email ou senha incorretos!");
         }
     }
@@ -167,7 +165,7 @@ public class LoginInstituicao extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    if (tfSenhaInstituicao.getText().isEmpty() || tfEmailInstituicao.getText().isEmpty()) {
+        if (tfSenhaInstituicao.getText().isEmpty() || tfEmailInstituicao.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os Campos");
         } else {
             login(tfEmailInstituicao.getText(), tfSenhaInstituicao.getText());

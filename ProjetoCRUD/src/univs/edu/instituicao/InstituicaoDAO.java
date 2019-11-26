@@ -28,7 +28,7 @@ public class InstituicaoDAO {
         if (instituicao.getIdInstituicao() == 0) {
             sessao.save(instituicao);
             JOptionPane.showMessageDialog(null, "Instituição Cadastrada!");
-        }else {
+        } else {
             sessao.update(instituicao);
             JOptionPane.showMessageDialog(null, "Instituição Editada!");
         }
@@ -36,20 +36,20 @@ public class InstituicaoDAO {
         sessao.close();
 
     }
-    
+
     public List<Instituicao> pesquisar() {
         sessao = HibernateUtil.getSessionFactory().openSession();
         transacao = sessao.beginTransaction();
         List<Instituicao> instituicoes = sessao.createCriteria(Instituicao.class).list();
         return instituicoes;
     }
-    
+
     public String email(String email, String senha) {
         sessao = HibernateUtil.getSessionFactory().openSession();
         transacao = sessao.beginTransaction();
-        Usuario usuario = (Usuario) sessao.createCriteria(Usuario.class).add(Restrictions.eq("email", email)).uniqueResult();
+        Instituicao instituicao = (Instituicao) sessao.createCriteria(Instituicao.class).add(Restrictions.eq("email", email)).uniqueResult();
         sessao.close();
-        if (usuario.getEmail().equals(email) && usuario.getSenha().equals(senha)) {
+        if (instituicao.getEmail().equals(email) && instituicao.getSenha().equals(senha)) {
             return email;
         }
         return null;
@@ -58,9 +58,9 @@ public class InstituicaoDAO {
     public String senha(String senha, String email) {
         sessao = HibernateUtil.getSessionFactory().openSession();
         transacao = sessao.beginTransaction();
-        Usuario usuario = (Usuario) sessao.createCriteria(Usuario.class).add(Restrictions.eq("senha", senha)).uniqueResult();
+        Instituicao instituicao = (Instituicao) sessao.createCriteria(Instituicao.class).add(Restrictions.eq("senha", senha)).uniqueResult();
         sessao.close();
-        if (usuario.getSenha().equals(senha) && usuario.getEmail().equals(email)) {
+        if (instituicao.getSenha().equals(senha) && instituicao.getEmail().equals(email)) {
             return senha;
         }
         return null;

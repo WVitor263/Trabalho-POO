@@ -33,7 +33,7 @@ public class LoginUsuario extends javax.swing.JFrame {
             PaginaUsuario inicial = new PaginaUsuario();
             inicial.setVisible(true);
             dispose();
-        }else if(retorno == null || retorno1 == null){
+        } else if (retorno == null || retorno1 == null) {
             JOptionPane.showMessageDialog(null, "Email ou senha incorretos!");
         }
     }

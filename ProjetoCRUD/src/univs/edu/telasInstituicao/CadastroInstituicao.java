@@ -9,8 +9,6 @@ import javax.swing.JOptionPane;
 import univs.edu.instituicao.Instituicao;
 import univs.edu.instituicao.InstituicaoDAO;
 
-
-
 /**
  *
  * @author Lucas007
@@ -19,6 +17,7 @@ public class CadastroInstituicao extends javax.swing.JFrame {
 
     Instituicao instituicao = new Instituicao();
     InstituicaoDAO dao = new InstituicaoDAO();
+
     /**
      * Creates new form CadastroInstituicao
      */
@@ -26,15 +25,16 @@ public class CadastroInstituicao extends javax.swing.JFrame {
         initComponents();
     }
 
-    public void limparCampos(){
-    instituicao = new Instituicao();
-    tfNomeInstituicao.setText("");
-    tfEmailInstituicao.setText("");
-    tfSenhaInstituicao.setText("");
-    tfCidadeInstituicao.setText("");
-    tfRuaInstituicao.setText("");
-    tfTelefone.setText("");
+    public void limparCampos() {
+        instituicao = new Instituicao();
+        tfNomeInstituicao.setText("");
+        tfEmailInstituicao.setText("");
+        tfSenhaInstituicao.setText("");
+        tfCidadeInstituicao.setText("");
+        tfRuaInstituicao.setText("");
+        tfTelefone.setText("");
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -237,21 +237,23 @@ public class CadastroInstituicao extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(tfEmailInstituicao.getText(). isEmpty()||tfNomeInstituicao.getText(). isEmpty()||
- tfCidadeInstituicao.getText(). isEmpty()||tfRuaInstituicao.getText(). isEmpty()||tfSenhaInstituicao.getText(). isEmpty()
-||tfTelefone.getText(). isEmpty()){
+        if (tfEmailInstituicao.getText().isEmpty() || tfNomeInstituicao.getText().isEmpty()
+                || tfCidadeInstituicao.getText().isEmpty() || tfRuaInstituicao.getText().isEmpty() || tfSenhaInstituicao.getText().isEmpty()
+                || tfTelefone.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os Campos");
-            
-        }else{
+
+        } else {
             instituicao.setEmail(tfEmailInstituicao.getText());
             instituicao.setCidadeInstituicao(tfCidadeInstituicao.getText());
             instituicao.setNomeInstituicao(tfNomeInstituicao.getText());
-            instituicao.setRuaInstituicao(tfRuaInstituicao.getText()); 
+            instituicao.setRuaInstituicao(tfRuaInstituicao.getText());
             instituicao.setSenha(tfSenhaInstituicao.getText());
             instituicao.setTelefone(tfTelefone.getText());
             dao.salvar(instituicao);
-            limparCampos();
-            
+
+            LoginInstituicao login = new LoginInstituicao();
+            login.setVisible(true);
+            dispose();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
