@@ -10,11 +10,14 @@ import univs.edu.telasInstituicao.LoginInstituicao;
 import univs.edu.usuario.Usuario;
 import univs.edu.usuario.UsuarioDAO;
 
+
+
 /**
  *
  * @author weliton
  */
 public class LoginUsuario extends javax.swing.JFrame {
+  
 
     Usuario usuario = new Usuario();
     UsuarioDAO dao = new UsuarioDAO();
@@ -24,6 +27,7 @@ public class LoginUsuario extends javax.swing.JFrame {
      */
     public LoginUsuario() {
         initComponents();
+       
     }
 
     public void login(String email, String senha) {
@@ -59,15 +63,19 @@ public class LoginUsuario extends javax.swing.JFrame {
         tfEmail2 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         jLabel2.setText("jLabel2");
 
         jLabel5.setText("jLabel5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel1.setText("Login");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(230, 70, 46, 21);
 
         jButton1.setText("Entrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -75,21 +83,31 @@ public class LoginUsuario extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(240, 230, 63, 23);
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel3.setText("Email.:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(60, 170, 45, 18);
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel4.setText("Senha.:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(60, 200, 49, 18);
 
         tfSenha2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfSenha2ActionPerformed(evt);
             }
         });
+        getContentPane().add(tfSenha2);
+        tfSenha2.setBounds(120, 200, 65, 18);
 
         jLabel6.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
         jLabel6.setText("Novo Usuario");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(340, 290, 86, 29);
 
         jButton2.setText("Cadastro");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +115,10 @@ public class LoginUsuario extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(340, 320, 86, 23);
+        getContentPane().add(tfEmail2);
+        tfEmail2.setBounds(110, 170, 280, 20);
 
         jButton3.setText("Entrar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -104,72 +126,20 @@ public class LoginUsuario extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(70, 320, 63, 23);
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
         jLabel7.setText("Entrar como instituição");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(40, 300, 154, 15);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(jButton3)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(163, 163, 163)
-                        .addComponent(jLabel1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfSenha2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfEmail2))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(jButton1)))
-                .addGap(47, 47, 47))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel1)
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(tfEmail2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(tfSenha2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2))
-                .addContainerGap(52, Short.MAX_VALUE))
-        );
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/Como-cambiar-la-imagen-de-fondo-del-inicio-de-sesion-en-tu-Mac-professor-falken.com_.jpg"))); // NOI18N
+        jLabel8.setText("jLabel8");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(0, -90, 510, 580);
 
-        pack();
+        setSize(new java.awt.Dimension(525, 419));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -246,6 +216,7 @@ public class LoginUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField tfEmail2;
     private javax.swing.JPasswordField tfSenha2;
     // End of variables declaration//GEN-END:variables
