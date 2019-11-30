@@ -6,7 +6,6 @@
 package univs.edu.telasUsuairo;
 
 import javax.swing.JOptionPane;
-import univs.edu.telasInstituicao.LoginInstituicao;
 import univs.edu.usuario.Usuario;
 import univs.edu.usuario.UsuarioDAO;
 
@@ -57,12 +56,11 @@ public class LoginUsuario extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        tfSenha2 = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
+        tfSenha2 = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
         tfEmail2 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
         jLabel2.setText("jLabel2");
@@ -84,7 +82,7 @@ public class LoginUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(240, 230, 63, 23);
+        jButton1.setBounds(200, 250, 63, 23);
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel3.setText("Email.:");
@@ -96,6 +94,11 @@ public class LoginUsuario extends javax.swing.JFrame {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(60, 200, 49, 18);
 
+        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
+        jLabel6.setText("Novo Usuario");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(340, 290, 86, 29);
+
         tfSenha2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfSenha2ActionPerformed(evt);
@@ -103,11 +106,6 @@ public class LoginUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(tfSenha2);
         tfSenha2.setBounds(120, 200, 65, 18);
-
-        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
-        jLabel6.setText("Novo Usuario");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(340, 290, 86, 29);
 
         jButton2.setText("Cadastro");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -120,26 +118,21 @@ public class LoginUsuario extends javax.swing.JFrame {
         getContentPane().add(tfEmail2);
         tfEmail2.setBounds(110, 170, 280, 20);
 
-        jButton3.setText("Entrar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton4.setText("Voltar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3);
-        jButton3.setBounds(70, 320, 63, 23);
-
-        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
-        jLabel7.setText("Entrar como instituição");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(40, 300, 154, 15);
+        getContentPane().add(jButton4);
+        jButton4.setBounds(60, 320, 73, 23);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/Como-cambiar-la-imagen-de-fondo-del-inicio-de-sesion-en-tu-Mac-professor-falken.com_.jpg"))); // NOI18N
-        jLabel8.setText("jLabel8");
+        jLabel8.setText("Voltar");
         getContentPane().add(jLabel8);
         jLabel8.setBounds(0, -90, 510, 580);
 
-        setSize(new java.awt.Dimension(525, 419));
+        setSize(new java.awt.Dimension(525, 438));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -164,11 +157,9 @@ public class LoginUsuario extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        LoginInstituicao login = new LoginInstituicao();
-        login.setVisible(true);
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,14 +199,13 @@ public class LoginUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField tfEmail2;
     private javax.swing.JPasswordField tfSenha2;
