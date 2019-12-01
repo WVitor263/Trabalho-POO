@@ -42,6 +42,17 @@ public class UsuarioDAO {
         return usuario;
 
     }
+    public Usuario pesquisar(String email,String senha){
+        sessao = HibernateUtil.
+                getSessionFactory().openSession();
+        transacao = sessao.beginTransaction();
+        Usuario usuario = (Usuario) sessao.
+                createCriteria(Usuario.class).add(
+                Restrictions.eq("email", email)).add(
+                Restrictions.eq("senha",senha))
+                .uniqueResult();
+        return usuario;      
+    }
 
     public List<Usuario> pesquisar() {
         sessao = HibernateUtil.getSessionFactory().openSession();
@@ -50,27 +61,7 @@ public class UsuarioDAO {
         return usuarios;
 
     }
-
-    public String email(String email, String senha) {
-        sessao = HibernateUtil.getSessionFactory().openSession();
-        transacao = sessao.beginTransaction();
-        Usuario usuario = (Usuario) sessao.createCriteria(Usuario.class).add(Restrictions.eq("email", email)).uniqueResult();
-        sessao.close();
-        if (usuario.getEmail().equals(email) && usuario.getSenha().equals(senha)) {
-            return email;
-        }
-        return null;
-    }
-
-    public String senha(String senha, String email) {
-        sessao = HibernateUtil.getSessionFactory().openSession();
-        transacao = sessao.beginTransaction();
-        Usuario usuario = (Usuario) sessao.createCriteria(Usuario.class).add(Restrictions.eq("senha", senha)).uniqueResult();
-        sessao.close();
-        if (usuario.getSenha().equals(senha) && usuario.getEmail().equals(email)) {
-            return senha;
-        }
-        return null;
+   
     }
     
-}
+

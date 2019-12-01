@@ -5,7 +5,7 @@
  */
 package univs.edu.telasInstituicao;
 
-import univs.edu.telasUsuairo.LoginUsuario;
+import univs.edu.telasUsuario.LoginUsuario;
 import univs.edu.usuario.Usuario;
 
 /**

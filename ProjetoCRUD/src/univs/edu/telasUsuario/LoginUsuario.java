@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package univs.edu.telasUsuairo;
+package univs.edu.telasUsuario;
 
 import javax.swing.JOptionPane;
 import univs.edu.usuario.Usuario;
@@ -29,17 +29,7 @@ public class LoginUsuario extends javax.swing.JFrame {
        
     }
 
-    public void login(String email, String senha) {
-        String retorno = dao.email(email, senha);
-        String retorno1 = dao.senha(senha, email);
-        if (email.equals(retorno) && senha.equals(retorno1)) {
-            PaginaUsuario inicial = new PaginaUsuario();
-            inicial.setVisible(true);
-            dispose();
-        } else if (retorno == null || retorno1 == null) {
-            JOptionPane.showMessageDialog(null, "Email ou senha incorretos!");
-        }
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,9 +47,9 @@ public class LoginUsuario extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        tfSenha2 = new javax.swing.JPasswordField();
+        tfSenha = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
-        tfEmail2 = new javax.swing.JTextField();
+        tfEmail = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
@@ -99,13 +89,13 @@ public class LoginUsuario extends javax.swing.JFrame {
         getContentPane().add(jLabel6);
         jLabel6.setBounds(340, 290, 86, 29);
 
-        tfSenha2.addActionListener(new java.awt.event.ActionListener() {
+        tfSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfSenha2ActionPerformed(evt);
+                tfSenhaActionPerformed(evt);
             }
         });
-        getContentPane().add(tfSenha2);
-        tfSenha2.setBounds(120, 200, 65, 18);
+        getContentPane().add(tfSenha);
+        tfSenha.setBounds(120, 200, 65, 18);
 
         jButton2.setText("Cadastro");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -115,8 +105,8 @@ public class LoginUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2);
         jButton2.setBounds(340, 320, 86, 23);
-        getContentPane().add(tfEmail2);
-        tfEmail2.setBounds(110, 170, 280, 20);
+        getContentPane().add(tfEmail);
+        tfEmail.setBounds(110, 170, 280, 20);
 
         jButton4.setText("Voltar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -137,19 +127,27 @@ public class LoginUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (tfSenha2.getText().isEmpty() || tfEmail2.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Preencha todos os Campos");
-        } else {
-            login(tfEmail2.getText(), tfSenha2.getText());
-
-        }
-
+if(tfEmail.getText().isEmpty()||tfSenha.getText().isEmpty()){
+    JOptionPane.showMessageDialog(null, "Preencha Campos ");
+}else{
+    usuario = dao.pesquisar(tfEmail.getText(), tfSenha.getText());
+    if(usuario!=null){
+        PaginaUsuario tela = new PaginaUsuario();
+             tela.setVisible(true);
+             dispose();
+             Usuario.usuario = usuario;
+             
+    }else{
+       JOptionPane.showMessageDialog(null, "Dados Invalidos!"); 
+    }
+        
+    }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void tfSenha2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSenha2ActionPerformed
+    private void tfSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSenhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfSenha2ActionPerformed
+    }//GEN-LAST:event_tfSenhaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         TelaUsuario cadastrar = new TelaUsuario();
@@ -207,7 +205,7 @@ public class LoginUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField tfEmail2;
-    private javax.swing.JPasswordField tfSenha2;
+    private javax.swing.JTextField tfEmail;
+    private javax.swing.JPasswordField tfSenha;
     // End of variables declaration//GEN-END:variables
 }

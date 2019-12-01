@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package univs.edu.telasUsuairo;
+package univs.edu.telasUsuario;
 
 import javax.swing.JOptionPane;
 import univs.edu.usuario.Usuario;

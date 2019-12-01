@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package univs.edu.telasUsuairo;
+package univs.edu.telasUsuario;
 
 import univs.edu.usuario.Usuario;
 import univs.edu.usuario.UsuarioDAO;
@@ -16,18 +16,20 @@ public class EditarUsuario extends javax.swing.JFrame {
 
     Usuario usuario = new Usuario();
     UsuarioDAO dao = new UsuarioDAO();
+   
 
     public EditarUsuario() {
         initComponents();
     }
 
-    public void atualizarCampos() {
+    public void atualizarCampos(Usuario usuario) {
         tfEditarEmail.setText(usuario.getEmail());
         tfEditarNome.setText(usuario.getNomeUsuario());
         tfEditarSenha.setText(usuario.getSenha());
         tfEditarCidade.setText(usuario.getCidadeUsuario());
         tfEditarRua.setText(usuario.getRuaUsuario());
         tfEditarNumero.setText(usuario.getNumeroUsuario());
+        this.usuario=usuario;
     }
 
     /**
@@ -188,8 +190,9 @@ public class EditarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_tfEditarEmailActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        atualizarCampos();
+        atualizarCampos(Usuario.usuario);
         dao.salvar(usuario);
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
