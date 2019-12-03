@@ -18,6 +18,7 @@ public class EditarInstituicao extends javax.swing.JFrame {
     
     
     public void atualizarCampos() {
+        instituicao = Instituicao.instituicao;
         tfEditarEmailInstituicao.setText(instituicao.getEmail());
         tfEditarNomeInstituicao.setText(instituicao.getNomeInstituicao());
         tfEditarSenhaInstituicao.setText(instituicao.getSenha());
@@ -214,8 +215,7 @@ public class EditarInstituicao extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       atualizarCampos();
-       dao.salvar(instituicao);
+       
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

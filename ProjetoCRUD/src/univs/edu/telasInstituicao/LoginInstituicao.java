@@ -22,17 +22,7 @@ public class LoginInstituicao extends javax.swing.JFrame {
         initComponents();
     }
 
-    public void login(String email, String senha) {
-        String retorno = dao.email(email, senha);
-        String retorno1 = dao.senha(senha, email);
-        if (email.equals(retorno) && senha.equals(retorno1)) {
-            PaginaInstituicao inicial = new PaginaInstituicao();
-            inicial.setVisible(true);
-            dispose();
-        } else if (retorno == null || retorno1 == null) {
-            JOptionPane.showMessageDialog(null, "Email ou senha incorretos!");
-        }
-    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -150,10 +140,19 @@ public class LoginInstituicao extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (tfSenhaInstituicao.getText().isEmpty() || tfEmailInstituicao.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Preencha todos os Campos");
+        if (tfEmailInstituicao.getText().isEmpty() || tfSenhaInstituicao.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Preencha Campos ");
         } else {
-            login(tfEmailInstituicao.getText(), tfSenhaInstituicao.getText());
+            instituicao = dao.pesquisar(tfEmailInstituicao.getText(), tfSenhaInstituicao.getText());
+            if (instituicao != null) {
+                PaginaInstituicao tela = new PaginaInstituicao();
+                tela.setVisible(true);
+                dispose();
+                Instituicao.instituicao = instituicao;
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Dados Invalidos!");
+            }
 
         }
     }//GEN-LAST:event_jButton1ActionPerformed

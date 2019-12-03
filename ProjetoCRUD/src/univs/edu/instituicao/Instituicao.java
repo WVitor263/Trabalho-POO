@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
 public class Instituicao {
@@ -29,6 +30,9 @@ public class Instituicao {
     
     @Column(length = 100, nullable = false)
     private String telefone;
+    
+    @Transient
+    public static Instituicao instituicao;
     
 
     public int getIdInstituicao() {

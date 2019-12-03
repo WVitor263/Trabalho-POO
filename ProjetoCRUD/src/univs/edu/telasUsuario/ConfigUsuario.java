@@ -13,15 +13,16 @@ import univs.edu.usuario.UsuarioDAO;
  * @author Lucas007
  */
 public class ConfigUsuario extends javax.swing.JFrame {
-UsuarioDAO dao = new UsuarioDAO();
-Usuario usuario = new Usuario();
+
+    UsuarioDAO dao = new UsuarioDAO();
+    Usuario usuario = new Usuario();
+
     /**
      * Creates new form ConfigUsuario
      */
     public ConfigUsuario() {
         initComponents();
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -116,7 +117,7 @@ Usuario usuario = new Usuario();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
+
         EditarUsuario editar = new EditarUsuario();
         editar.setVisible(true);
         editar.atualizarCampos();

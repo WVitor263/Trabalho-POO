@@ -36,6 +36,14 @@ public class InstituicaoDAO {
         sessao.close();
 
     }
+    
+    public void excluir(Instituicao instituicao) {
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        transacao = sessao.beginTransaction();
+        sessao.delete(instituicao);
+        transacao.commit();
+        sessao.close();
+    }
 
     public List<Instituicao> pesquisar() {
         sessao = HibernateUtil.getSessionFactory().openSession();
@@ -44,25 +52,15 @@ public class InstituicaoDAO {
         return instituicoes;
     }
 
-    public String email(String email, String senha) {
-        sessao = HibernateUtil.getSessionFactory().openSession();
+   public Instituicao pesquisar(String email,String senha){
+        sessao = HibernateUtil.
+                getSessionFactory().openSession();
         transacao = sessao.beginTransaction();
-        Instituicao instituicao = (Instituicao) sessao.createCriteria(Instituicao.class).add(Restrictions.eq("email", email)).uniqueResult();
-        sessao.close();
-        if (instituicao.getEmail().equals(email) && instituicao.getSenha().equals(senha)) {
-            return email;
-        }
-        return null;
-    }
-
-    public String senha(String senha, String email) {
-        sessao = HibernateUtil.getSessionFactory().openSession();
-        transacao = sessao.beginTransaction();
-        Instituicao instituicao = (Instituicao) sessao.createCriteria(Instituicao.class).add(Restrictions.eq("senha", senha)).uniqueResult();
-        sessao.close();
-        if (instituicao.getSenha().equals(senha) && instituicao.getEmail().equals(email)) {
-            return senha;
-        }
-        return null;
+        Instituicao instituicao = (Instituicao) sessao.
+                createCriteria(Instituicao.class).add(
+                Restrictions.eq("email", email)).add(
+                Restrictions.eq("senha",senha))
+                .uniqueResult();
+        return instituicao;      
     }
 }

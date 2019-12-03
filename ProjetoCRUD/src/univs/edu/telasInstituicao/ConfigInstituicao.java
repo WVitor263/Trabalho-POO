@@ -5,15 +5,17 @@
  */
 package univs.edu.telasInstituicao;
 
+import univs.edu.instituicao.Instituicao;
+import univs.edu.instituicao.InstituicaoDAO;
+
 /**
  *
  * @author Lucas007
  */
 public class ConfigInstituicao extends javax.swing.JFrame {
-
-    /**
-     * Creates new form ConfigInstituicao
-     */
+    Instituicao instituicao = new Instituicao();
+    InstituicaoDAO dao = new InstituicaoDAO();
+        
     public ConfigInstituicao() {
         initComponents();
     }
@@ -45,7 +47,7 @@ public class ConfigInstituicao extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Documentos");
+        jButton2.setText("Excluir");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -74,9 +76,7 @@ public class ConfigInstituicao extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(117, 117, 117)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jButton2)))
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(133, 133, 133)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,7 +85,9 @@ public class ConfigInstituicao extends javax.swing.JFrame {
                 .addContainerGap(104, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
                 .addGap(132, 132, 132))
         );
         layout.setVerticalGroup(
@@ -109,11 +111,16 @@ public class ConfigInstituicao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        dao.excluir(Instituicao.instituicao);
+        LoginInstituicao login = new  LoginInstituicao();
+        login.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
         EditarInstituicao editar = new EditarInstituicao();
+        editar.atualizarCampos();
         editar.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
