@@ -5,7 +5,9 @@
  */
 package univs.edu.telasUsuario;
 
+import javax.swing.JOptionPane;
 import univs.edu.usuario.Usuario;
+import static univs.edu.usuario.Usuario.usuario;
 import univs.edu.usuario.UsuarioDAO;
 
 /**
@@ -16,20 +18,21 @@ public class EditarUsuario extends javax.swing.JFrame {
 
     Usuario usuario = new Usuario();
     UsuarioDAO dao = new UsuarioDAO();
-   
 
     public EditarUsuario() {
         initComponents();
+
     }
 
-    public void atualizarCampos(Usuario usuario) {
+    public void atualizarCampos() {
+        usuario = Usuario.usuario;
         tfEditarEmail.setText(usuario.getEmail());
         tfEditarNome.setText(usuario.getNomeUsuario());
         tfEditarSenha.setText(usuario.getSenha());
         tfEditarCidade.setText(usuario.getCidadeUsuario());
         tfEditarRua.setText(usuario.getRuaUsuario());
         tfEditarNumero.setText(usuario.getNumeroUsuario());
-        this.usuario=usuario;
+
     }
 
     /**
@@ -190,9 +193,26 @@ public class EditarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_tfEditarEmailActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        atualizarCampos(Usuario.usuario);
-        dao.salvar(usuario);
-        dispose();
+
+        if (tfEditarNome.getText().isEmpty() || tfEditarSenha.getText().isEmpty() || tfEditarEmail.getText().isEmpty()
+                || tfEditarCidade.getText().isEmpty() || tfEditarNumero.getText().isEmpty() || tfEditarRua.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
+        } else {
+            usuario.setNomeUsuario(tfEditarNome.getText());
+            usuario.setEmail(tfEditarEmail.getText());
+            usuario.setSenha(tfEditarSenha.getText());
+            usuario.setCidadeUsuario(tfEditarCidade.getText());
+            usuario.setRuaUsuario(tfEditarRua.getText());
+            usuario.setNumeroUsuario(tfEditarNumero.getText());
+
+            dao.salvar(Usuario.usuario);
+            ConfigUsuario config = new ConfigUsuario();
+            config.setVisible(true);
+            dispose();
+
+        }
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

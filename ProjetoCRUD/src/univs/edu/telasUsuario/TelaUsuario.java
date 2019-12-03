@@ -33,7 +33,7 @@ public class TelaUsuario extends javax.swing.JFrame {
 
     }
 
-    public void atualizarCamposConsulata() {
+    public void atualizarCamposConsulta() {
         tfEmail.setText(usuario.getEmail());
         tfSenha.setText(usuario.getSenha());
         tfNome.setText(usuario.getNomeUsuario());

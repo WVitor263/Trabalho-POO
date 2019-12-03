@@ -9,14 +9,11 @@ import javax.swing.JOptionPane;
 import univs.edu.usuario.Usuario;
 import univs.edu.usuario.UsuarioDAO;
 
-
-
 /**
  *
  * @author weliton
  */
 public class LoginUsuario extends javax.swing.JFrame {
-  
 
     Usuario usuario = new Usuario();
     UsuarioDAO dao = new UsuarioDAO();
@@ -26,10 +23,8 @@ public class LoginUsuario extends javax.swing.JFrame {
      */
     public LoginUsuario() {
         initComponents();
-       
-    }
 
-    
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,7 +41,6 @@ public class LoginUsuario extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         tfSenha = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
         tfEmail = new javax.swing.JTextField();
@@ -83,11 +77,6 @@ public class LoginUsuario extends javax.swing.JFrame {
         jLabel4.setText("Senha.:");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(60, 200, 49, 18);
-
-        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 10)); // NOI18N
-        jLabel6.setText("Novo Usuario");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(340, 290, 86, 29);
 
         tfSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,21 +116,21 @@ public class LoginUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-if(tfEmail.getText().isEmpty()||tfSenha.getText().isEmpty()){
-    JOptionPane.showMessageDialog(null, "Preencha Campos ");
-}else{
-    usuario = dao.pesquisar(tfEmail.getText(), tfSenha.getText());
-    if(usuario!=null){
-        PaginaUsuario tela = new PaginaUsuario();
-             tela.setVisible(true);
-             dispose();
-             Usuario.usuario = usuario;
-             
-    }else{
-       JOptionPane.showMessageDialog(null, "Dados Invalidos!"); 
-    }
-        
-    }
+        if (tfEmail.getText().isEmpty() || tfSenha.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Preencha Campos ");
+        } else {
+            usuario = dao.pesquisar(tfEmail.getText(), tfSenha.getText());
+            if (usuario != null) {
+                PaginaUsuario tela = new PaginaUsuario();
+                tela.setVisible(true);
+                dispose();
+                Usuario.usuario = usuario;
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Dados Invalidos!");
+            }
+
+        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -203,7 +192,6 @@ if(tfEmail.getText().isEmpty()||tfSenha.getText().isEmpty()){
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField tfEmail;
     private javax.swing.JPasswordField tfSenha;

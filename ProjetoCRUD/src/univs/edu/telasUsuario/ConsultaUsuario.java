@@ -130,7 +130,7 @@ public void atualizarTabela(){
             usuario = dao.pesquisar((int) tabelaUsuario.getValueAt(linha, 0));
             TelaUsuario cadastro = new TelaUsuario();
             cadastro.usuario = usuario;
-            cadastro.atualizarCamposConsulata();
+            cadastro.atualizarCamposConsulta();
             cadastro.setVisible(true);
             dispose();
             
