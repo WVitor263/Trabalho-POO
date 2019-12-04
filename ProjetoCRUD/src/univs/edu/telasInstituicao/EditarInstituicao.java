@@ -5,6 +5,7 @@
  */
 package univs.edu.telasInstituicao;
 
+import javax.swing.JOptionPane;
 import univs.edu.instituicao.Instituicao;
 import univs.edu.instituicao.InstituicaoDAO;
 
@@ -13,10 +14,10 @@ import univs.edu.instituicao.InstituicaoDAO;
  * @author Lucas007
  */
 public class EditarInstituicao extends javax.swing.JFrame {
+
     Instituicao instituicao = new Instituicao();
     InstituicaoDAO dao = new InstituicaoDAO();
-    
-    
+
     public void atualizarCampos() {
         instituicao = Instituicao.instituicao;
         tfEditarEmailInstituicao.setText(instituicao.getEmail());
@@ -26,7 +27,7 @@ public class EditarInstituicao extends javax.swing.JFrame {
         tfEditarRuaInstituicao.setText(instituicao.getRuaInstituicao());
         tfEditarTelefone.setText(instituicao.getTelefone());
     }
-    
+
     public EditarInstituicao() {
         initComponents();
     }
@@ -215,7 +216,24 @@ public class EditarInstituicao extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       
+        if (tfEditarEmailInstituicao.getText().isEmpty() || tfEditarNomeInstituicao.getText().isEmpty()
+                || tfEditarCidadeInstituicao.getText().isEmpty() || tfEditarRuaInstituicao.getText().isEmpty() || tfEditarSenhaInstituicao.getText().isEmpty()
+                || tfEditarTelefone.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os Campos");
+
+        } else {
+            instituicao.setEmail(tfEditarEmailInstituicao.getText());
+            instituicao.setCidadeInstituicao(tfEditarCidadeInstituicao.getText());
+            instituicao.setNomeInstituicao(tfEditarNomeInstituicao.getText());
+            instituicao.setRuaInstituicao(tfEditarRuaInstituicao.getText());
+            instituicao.setSenha(tfEditarSenhaInstituicao.getText());
+            instituicao.setTelefone(tfEditarTelefone.getText());
+            dao.salvar(instituicao);
+
+            ConfigInstituicao config = new ConfigInstituicao();
+            config.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
