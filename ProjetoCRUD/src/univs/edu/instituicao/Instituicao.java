@@ -31,7 +31,16 @@ public class Instituicao {
     @Column(length = 100, nullable = false)
     private String telefone;
     
-    
+    @Column(length = 100, nullable = false)
+    private boolean identidade;
+    @Column(length = 100, nullable = false)
+    private boolean certidao;
+    @Column(length = 100, nullable = false)
+    private boolean carteiraDeTrabalho;
+    @Column(length = 100, nullable = false)
+    private boolean cpf;
+    @Column(length = 100, nullable = false)
+    private boolean titulo;
     
     @Transient
     public static Instituicao instituicao;
@@ -91,6 +100,46 @@ public class Instituicao {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public boolean isIdentidade() {
+        return identidade;
+    }
+
+    public void setIdentidade(boolean identidade) {
+        this.identidade = identidade;
+    }
+
+    public boolean isCertidao() {
+        return certidao;
+    }
+
+    public void setCertidao(boolean certidao) {
+        this.certidao = certidao;
+    }
+
+    public boolean isCarteiraDeTrabalho() {
+        return carteiraDeTrabalho;
+    }
+
+    public void setCarteiraDeTrabalho(boolean carteiraDeTrabalho) {
+        this.carteiraDeTrabalho = carteiraDeTrabalho;
+    }
+
+    public boolean isCpf() {
+        return cpf;
+    }
+
+    public void setCpf(boolean cpf) {
+        this.cpf = cpf;
+    }
+
+    public boolean isTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(boolean titulo) {
+        this.titulo = titulo;
     }
     
 }

@@ -3,12 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/LABORATORIO%2001/Desktop/Trabalho-POO/ProjetoCRUD/src/univs/edu/telasUsuario/PaginaUsuario.java</file>
+            <file>file:/C:/Users/LABORATORIO%2001/Desktop/Trabalho-POO/ProjetoCRUD/src/univs/edu/documento/DocumentoDAO.java</file>
+            <file>file:/C:/Users/LABORATORIO%2001/Desktop/Trabalho-POO/ProjetoCRUD/src/univs/edu/util/HibernateUtil.java</file>
             <file>file:/C:/Users/LABORATORIO%2001/Desktop/Trabalho-POO/ProjetoCRUD/src/univs/edu/instituicao/Instituicao.java</file>
-            <file>file:/C:/Users/LABORATORIO%2001/Desktop/Trabalho-POO/ProjetoCRUD/src/univs/edu/usuario/UsuarioTableModel.java</file>
-            <file>file:/C:/Users/LABORATORIO%2001/Desktop/Trabalho-POO/ProjetoCRUD/src/univs/edu/telasUsuario/EditarUsuario.java</file>
+            <file>file:/C:/Users/LABORATORIO%2001/Desktop/Trabalho-POO/ProjetoCRUD/src/univs/edu/documento/Documento.java</file>
+            <file>file:/C:/Users/LABORATORIO%2001/Desktop/Trabalho-POO/ProjetoCRUD/src/univs/edu/telasInstituicao/CadastroInstituicao.java</file>
             <file>file:/C:/Users/LABORATORIO%2001/Desktop/Trabalho-POO/ProjetoCRUD/src/univs/edu/telasInstituicao/PaginaInstituicao.java</file>
+            <file>file:/C:/Users/LABORATORIO%2001/Desktop/Trabalho-POO/ProjetoCRUD/src/univs/edu/telasDocumento/DocumentoTe.java</file>
             <file>file:/C:/Users/LABORATORIO%2001/Desktop/Trabalho-POO/ProjetoCRUD/src/univs/edu/telasUsuario/TelaUsuario.java</file>
-            <file>file:/C:/Users/LABORATORIO%2001/Desktop/Trabalho-POO/ProjetoCRUD/src/documento/Documento.java</file>
+            <file>file:/C:/Users/LABORATORIO%2001/Desktop/Trabalho-POO/ProjetoCRUD/src/hibernate.cfg.xml</file>
             <file>file:/C:/Users/LABORATORIO%2001/Desktop/Trabalho-POO/ProjetoCRUD/src/univs/edu/usuario/Usuario.java</file>
             <file>file:/C:/Users/LABORATORIO%2001/Desktop/Trabalho-POO/ProjetoCRUD/src/univs/edu/usuario/UsuarioDAO.java</file>
         </group>

@@ -28,6 +28,10 @@ public class PaginaInstituicao extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        jRadioReservista = new javax.swing.JRadioButton();
+        jRadioCpf = new javax.swing.JRadioButton();
+        jRadioIndetidade = new javax.swing.JRadioButton();
+        jRadioCarteira = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,21 +42,66 @@ public class PaginaInstituicao extends javax.swing.JFrame {
             }
         });
 
+        jRadioReservista.setText("Resevista");
+        jRadioReservista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioReservistaActionPerformed(evt);
+            }
+        });
+
+        jRadioCpf.setText("CPF");
+        jRadioCpf.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioCpfMouseClicked(evt);
+            }
+        });
+        jRadioCpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioCpfActionPerformed(evt);
+            }
+        });
+
+        jRadioIndetidade.setText("Identidade");
+        jRadioIndetidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioIndetidadeActionPerformed(evt);
+            }
+        });
+
+        jRadioCarteira.setText("Carteira de Trabalho");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jButton1)
-                .addContainerGap(276, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioCpf)
+                            .addComponent(jRadioReservista)
+                            .addComponent(jButton1))
+                        .addContainerGap(276, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioIndetidade)
+                            .addComponent(jRadioCarteira))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(109, 109, 109)
                 .addComponent(jButton1)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jRadioCpf)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioIndetidade)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioCarteira)
+                .addComponent(jRadioReservista)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
@@ -64,6 +113,22 @@ public class PaginaInstituicao extends javax.swing.JFrame {
         config.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jRadioCpfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioCpfMouseClicked
+
+    }//GEN-LAST:event_jRadioCpfMouseClicked
+
+    private void jRadioCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioCpfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioCpfActionPerformed
+
+    private void jRadioIndetidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioIndetidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioIndetidadeActionPerformed
+
+    private void jRadioReservistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioReservistaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioReservistaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -102,5 +167,9 @@ public class PaginaInstituicao extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JRadioButton jRadioCarteira;
+    private javax.swing.JRadioButton jRadioCpf;
+    private javax.swing.JRadioButton jRadioIndetidade;
+    private javax.swing.JRadioButton jRadioReservista;
     // End of variables declaration//GEN-END:variables
 }

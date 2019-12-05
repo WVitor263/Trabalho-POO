@@ -1,26 +1,29 @@
-package documento;
+package univs.edu.documento;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+@Entity
 public class Documento {
+
     @Id
     @GeneratedValue
     private int idDocumentos;
-@Column(length = 100, nullable = false)
+    @Column(length = 100, nullable = false)
     private String nome;
-@Column(length = 100, nullable = false)
+    @Column(length = 100, nullable = false)
     private String periodoEmissao;
-@Column(length = 100, nullable = false)
+    @Column(length = 100, nullable = false)
     private String prazoEntrega;
-@Column(length = 100, nullable = false)
+    @Column(length = 100, nullable = false)
     private String docuNecessarios;
-@Column(length = 100, nullable = false)
+    @Column(length = 100, nullable = false)
     private String idadeMinima;
-@Column(length = 100, nullable = false)
+    @Column(length = 100, nullable = false)
     private String validade;
-@Column(length = 100, nullable = false)
+    @Column(length = 100, nullable = true)
     private String obsevacoes;
 
     public String getPeriodoEmissao() {

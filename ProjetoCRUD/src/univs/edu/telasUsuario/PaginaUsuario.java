@@ -5,17 +5,32 @@
  */
 package univs.edu.telasUsuario;
 
+import javax.swing.JOptionPane;
+import univs.edu.instituicao.Instituicao;
+import univs.edu.instituicao.InstituicaoDAO;
+import univs.edu.instituicao.InstituicaoTabelModel;
+import univs.edu.usuario.Usuario;
+
 /**
  *
  * @author weliton
  */
 public class PaginaUsuario extends javax.swing.JFrame {
 
-    
+    InstituicaoDAO idao = new InstituicaoDAO();
+    Usuario usuario = new Usuario();
+    Instituicao instituicao = new Instituicao();
     
     public PaginaUsuario() {
         initComponents();
+        atualizarTabela();
     }
+    public void atualizarTabela(){
+       
+        InstituicaoTabelModel tabela = new InstituicaoTabelModel(idao.pesquisar());
+        tabelaUsual.setModel(tabela);
+        
+         }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,17 +43,25 @@ public class PaginaUsuario extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelaUsual = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
+        jRadioCpf = new javax.swing.JRadioButton();
+        jRadioIndetidade = new javax.swing.JRadioButton();
+        jRadioCarteira = new javax.swing.JRadioButton();
+        jRadioReservista = new javax.swing.JRadioButton();
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/telaUsuario.png"))); // NOI18N
         jLabel2.setText("jLabel2");
 
         jButton1.setText("jButton1");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,20 +75,62 @@ public class PaginaUsuario extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaUsual.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "null"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabelaUsual);
 
         jButton3.setText("Pesquisar");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioCpf);
+        jRadioCpf.setText("CPF");
+        jRadioCpf.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioCpfMouseClicked(evt);
+            }
+        });
+        jRadioCpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioCpfActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioIndetidade);
+        jRadioIndetidade.setText("Identidade");
+        jRadioIndetidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioIndetidadeActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioCarteira);
+        jRadioCarteira.setText("Carteira de Trabalho");
+
+        buttonGroup1.add(jRadioReservista);
+        jRadioReservista.setText("Resevista");
+        jRadioReservista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioReservistaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,12 +138,22 @@ public class PaginaUsuario extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(21, 21, 21)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jButton2))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jRadioIndetidade)
+                                .addComponent(jRadioCpf)
+                                .addComponent(jRadioCarteira))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton2)))
+                        .addComponent(jRadioReservista)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -100,11 +175,19 @@ public class PaginaUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jButton2))
+                        .addComponent(jButton2)
+                        .addGap(31, 31, 31)
+                        .addComponent(jRadioCpf)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioIndetidade)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioCarteira)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioReservista))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
@@ -116,6 +199,37 @@ public class PaginaUsuario extends javax.swing.JFrame {
         config.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jRadioReservistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioReservistaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioReservistaActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jRadioCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioCpfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioCpfActionPerformed
+
+    private void jRadioCpfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioCpfMouseClicked
+       
+    }//GEN-LAST:event_jRadioCpfMouseClicked
+
+    private void jRadioIndetidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioIndetidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioIndetidadeActionPerformed
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        if(jRadioCarteira.isSelected()||jRadioCpf.isSelected()||jRadioIndetidade.isSelected()||jRadioReservista.isSelected()){
+            if(Usuario.usuario.getCidadeUsuario().equals(Instituicao.instituicao.getCidadeInstituicao())){
+               
+            }
+        }else{
+           JOptionPane.showMessageDialog(null,"Selecione caixa"); 
+        }
+    }//GEN-LAST:event_jButton3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -153,13 +267,19 @@ public class PaginaUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JRadioButton jRadioCarteira;
+    private javax.swing.JRadioButton jRadioCpf;
+    private javax.swing.JRadioButton jRadioIndetidade;
+    private javax.swing.JRadioButton jRadioReservista;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tabelaUsual;
     // End of variables declaration//GEN-END:variables
 }
