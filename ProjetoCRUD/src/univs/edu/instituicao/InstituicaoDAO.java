@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
-import univs.edu.usuario.Usuario;
 import univs.edu.util.HibernateUtil;
 
 /**
@@ -62,5 +61,14 @@ public class InstituicaoDAO {
                 Restrictions.eq("senha",senha))
                 .uniqueResult();
         return instituicao;      
+    }
+   
+   public List<Instituicao> pesquisar(String cidade) {
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        transacao = sessao.beginTransaction();
+        List<Instituicao> instituicoes = sessao.createCriteria(Instituicao.class).add(
+                Restrictions.eq("cidadeInstituicao", cidade)).list();
+        return instituicoes;
+        
     }
 }

@@ -7,7 +7,7 @@ import javax.swing.table.AbstractTableModel;
 public class InstituicaoTabelModel extends AbstractTableModel {
 
     private List<Instituicao> instituicoes = new ArrayList<>();
-    private String[] colunas = { "Nome", "Email", "Senha", "Cidade", " Rua", "Telefone"};
+    private String[] colunas = { "Nome", "Cidade", " Rua"};
     
 
     public InstituicaoTabelModel(List<Instituicao> instituicoes) {
@@ -34,12 +34,6 @@ public class InstituicaoTabelModel extends AbstractTableModel {
                 return instituicao.getEmail();
             case 2:
                 return instituicao.getSenha();
-            case 3:
-                return instituicao.getCidadeInstituicao();
-            case 4:
-                return instituicao.getRuaInstituicao();
-            case 5:
-                return instituicao.getTelefone();
         }
         return null;
     }
@@ -53,13 +47,6 @@ public class InstituicaoTabelModel extends AbstractTableModel {
                 return colunas[1];
             case 2:
                 return colunas[2];
-            case 3:
-                return colunas[3];
-            case 4:
-                return colunas[4];
-            case 5:
-                return colunas[5];
-            
         }
         return null;
     }

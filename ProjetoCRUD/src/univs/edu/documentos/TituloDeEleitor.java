@@ -1,11 +1,14 @@
 package univs.edu.documentos;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+@Entity
 public class TituloDeEleitor {
-     @Id
+
+    @Id
     @GeneratedValue
     private int idTitulo;
     @Column(length = 100, nullable = false)

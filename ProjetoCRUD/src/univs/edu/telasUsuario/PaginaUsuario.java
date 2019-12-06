@@ -20,17 +20,18 @@ public class PaginaUsuario extends javax.swing.JFrame {
     InstituicaoDAO idao = new InstituicaoDAO();
     Usuario usuario = new Usuario();
     Instituicao instituicao = new Instituicao();
-    
+
     public PaginaUsuario() {
         initComponents();
-        atualizarTabela();
-    }
-    public void atualizarTabela(){
-       
-        InstituicaoTabelModel tabela = new InstituicaoTabelModel(idao.pesquisar());
-        tabelaUsual.setModel(tabela);
         
-         }
+    }
+
+    public void atualizarTabela() {
+        usuario = Usuario.usuario;
+        InstituicaoTabelModel tabela = new InstituicaoTabelModel(idao.pesquisar(usuario.getCidadeUsuario()));
+        tabelaUsua.setModel(tabela);
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,13 +49,14 @@ public class PaginaUsuario extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaUsual = new javax.swing.JTable();
+        tabelaUsua = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jRadioCpf = new javax.swing.JRadioButton();
         jRadioIndetidade = new javax.swing.JRadioButton();
         jRadioCarteira = new javax.swing.JRadioButton();
         jRadioReservista = new javax.swing.JRadioButton();
+        jButton4 = new javax.swing.JButton();
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/telaUsuario.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -75,7 +77,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
             }
         });
 
-        tabelaUsual.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaUsua.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -86,7 +88,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4", "null"
             }
         ));
-        jScrollPane1.setViewportView(tabelaUsual);
+        jScrollPane1.setViewportView(tabelaUsua);
 
         jButton3.setText("Pesquisar");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -132,6 +134,13 @@ public class PaginaUsuario extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setText("Atualizar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -163,6 +172,10 @@ public class PaginaUsuario extends javax.swing.JFrame {
                         .addComponent(jButton3))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(30, 30, 30))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(146, 146, 146))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,7 +200,9 @@ public class PaginaUsuario extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -205,8 +220,8 @@ public class PaginaUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioReservistaActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       
-        
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jRadioCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioCpfActionPerformed
@@ -214,7 +229,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioCpfActionPerformed
 
     private void jRadioCpfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioCpfMouseClicked
-       
+
     }//GEN-LAST:event_jRadioCpfMouseClicked
 
     private void jRadioIndetidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioIndetidadeActionPerformed
@@ -222,14 +237,18 @@ public class PaginaUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioIndetidadeActionPerformed
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        if(jRadioCarteira.isSelected()||jRadioCpf.isSelected()||jRadioIndetidade.isSelected()||jRadioReservista.isSelected()){
-            if(Usuario.usuario.getCidadeUsuario().equals(Instituicao.instituicao.getCidadeInstituicao())){
-               
+        if (jRadioCarteira.isSelected() || jRadioCpf.isSelected() || jRadioIndetidade.isSelected() || jRadioReservista.isSelected()) {
+            if (Usuario.usuario.getCidadeUsuario().equals(Instituicao.instituicao.getCidadeInstituicao())) {
+
             }
-        }else{
-           JOptionPane.showMessageDialog(null,"Selecione caixa"); 
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione caixa");
         }
     }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        atualizarTabela();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -271,6 +290,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -280,6 +300,6 @@ public class PaginaUsuario extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioReservista;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTable tabelaUsual;
+    private javax.swing.JTable tabelaUsua;
     // End of variables declaration//GEN-END:variables
 }
