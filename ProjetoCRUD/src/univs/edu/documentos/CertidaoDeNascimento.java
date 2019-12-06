@@ -1,27 +1,27 @@
-package documento;
+package univs.edu.documentos;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-public class Documento {
+@Entity
+public class CertidaoDeNascimento {
     @Id
     @GeneratedValue
-    private int idDocumentos;
-@Column(length = 100, nullable = false)
-    private String nome;
-@Column(length = 100, nullable = false)
+    private int idCertidao;
+    @Column(length = 100, nullable = false)
+    private String documento = "Certidão De Nascimento";
+    @Column(length = 100, nullable = false)
     private String periodoEmissao;
-@Column(length = 100, nullable = false)
+    @Column(length = 100, nullable = false)
     private String prazoEntrega;
-@Column(length = 100, nullable = false)
+    @Column(length = 100, nullable = false)
     private String docuNecessarios;
-@Column(length = 100, nullable = false)
+    @Column(length = 100, nullable = false)
     private String idadeMinima;
-@Column(length = 100, nullable = false)
+    @Column(length = 100, nullable = false)
     private String validade;
-@Column(length = 100, nullable = false)
-    private String obsevacoes;
 
     public String getPeriodoEmissao() {
         return periodoEmissao;
@@ -63,27 +63,19 @@ public class Documento {
         this.validade = validade;
     }
 
-    public String getObsevacoes() {
-        return obsevacoes;
+    public String getDocumento() {
+        return documento;
     }
 
-    public void setObsevacoes(String obsevacoes) {
-        this.obsevacoes = obsevacoes;
+    public void setDocumento(String documento) {
+        this.documento = documento;
     }
 
-    public String getNome() {
-        return nome;
+    public int getIdCertidao() {
+        return idCertidao;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public int getIdDocumentos() {
-        return idDocumentos;
-    }
-
-    public void setIdDocumentos(int idDocumentos) {
-        this.idDocumentos = idDocumentos;
+    public void setIdCertidao(int idCertidao) {
+        this.idCertidao = idCertidao;
     }
 }

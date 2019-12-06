@@ -1,4 +1,4 @@
-package univs.edu.documento;
+package univs.edu.documentos;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,13 +6,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Documento {
+public class Identidade {
 
     @Id
     @GeneratedValue
-    private int idDocumentos;
+    private int idIdentidade;
     @Column(length = 100, nullable = false)
-    private String nome;
+    private String documento = "Identidade";
     @Column(length = 100, nullable = false)
     private String periodoEmissao;
     @Column(length = 100, nullable = false)
@@ -23,8 +23,7 @@ public class Documento {
     private String idadeMinima;
     @Column(length = 100, nullable = false)
     private String validade;
-    @Column(length = 100, nullable = true)
-    private String obsevacoes;
+    
 
     public String getPeriodoEmissao() {
         return periodoEmissao;
@@ -65,28 +64,20 @@ public class Documento {
     public void setValidade(String validade) {
         this.validade = validade;
     }
-
-    public String getObsevacoes() {
-        return obsevacoes;
+    
+    public String getDocumento() {
+        return documento;
     }
 
-    public void setObsevacoes(String obsevacoes) {
-        this.obsevacoes = obsevacoes;
+    public void setDocumento(String documento) {
+        this.documento = documento;
     }
 
-    public String getNome() {
-        return nome;
+    public int getIdIdentidade() {
+        return idIdentidade;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public int getIdDocumentos() {
-        return idDocumentos;
-    }
-
-    public void setIdDocumentos(int idDocumentos) {
-        this.idDocumentos = idDocumentos;
+    public void setIdIdentidade(int idIdentidade) {
+        this.idIdentidade = idIdentidade;
     }
 }
