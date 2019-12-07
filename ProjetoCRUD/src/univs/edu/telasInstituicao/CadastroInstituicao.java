@@ -85,6 +85,11 @@ public class CadastroInstituicao extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel11.setText("Rua.:");
 
+        tfEmailInstituicao.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfEmailInstituicaoFocusLost(evt);
+            }
+        });
         tfEmailInstituicao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfEmailInstituicaoActionPerformed(evt);
@@ -313,6 +318,14 @@ public class CadastroInstituicao extends javax.swing.JFrame {
     private void tfCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCpfActionPerformed
 
     }//GEN-LAST:event_tfCpfActionPerformed
+
+    private void tfEmailInstituicaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailInstituicaoFocusLost
+        if(dao.pesquisar(tfEmailInstituicao.getText()) != null){
+            JOptionPane.showMessageDialog(null, "Email ja cadastrado!");
+            tfEmailInstituicao.setText("");
+            tfEmailInstituicao.grabFocus();
+        }
+    }//GEN-LAST:event_tfEmailInstituicaoFocusLost
 
     /**
      * @param args the command line arguments

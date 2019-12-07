@@ -80,4 +80,13 @@ public class InstituicaoDAO {
         return instituicoes;
         
     }
+    
+     public Instituicao pesquisar(String email) {
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        transacao = sessao.beginTransaction();
+        Instituicao instituicao = (Instituicao) sessao.createCriteria(Instituicao.class).add(Restrictions.eq("email", email)).uniqueResult();
+        sessao.close();
+        return instituicao;
+
+    }
 }

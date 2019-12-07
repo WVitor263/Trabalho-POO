@@ -5,7 +5,7 @@
  */
 package univs.edu.telasUsuario;
 
-
+import javax.swing.JOptionPane;
 import univs.edu.instituicao.Instituicao;
 import univs.edu.instituicao.InstituicaoDAO;
 import univs.edu.instituicao.InstituicaoTabelModel;
@@ -27,10 +27,10 @@ public class PaginaUsuario extends javax.swing.JFrame {
     }
 
     public void atualizarTabela() {
-
-        InstituicaoTabelModel tabela = new InstituicaoTabelModel(idao.pesquisarPorCidade(Usuario.usuario.getCidadeUsuario()));
-        tabelaUsua.setModel(tabela);
-
+        if (tfPesquisar.getText().isEmpty()) {
+            InstituicaoTabelModel tabela = new InstituicaoTabelModel(idao.pesquisarPorCidade(Usuario.usuario.getCidadeUsuario()));
+            tabelaUsua.setModel(tabela);
+        }
     }
 
     /**
@@ -50,7 +50,9 @@ public class PaginaUsuario extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaUsua = new javax.swing.JTable();
-        Atualizar = new javax.swing.JButton();
+        tfPesquisar = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/telaUsuario.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -84,10 +86,17 @@ public class PaginaUsuario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabelaUsua);
 
-        Atualizar.setText("Atualizar");
-        Atualizar.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setText("Pesquisar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AtualizarActionPerformed(evt);
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Atualizar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
             }
         });
 
@@ -104,18 +113,28 @@ public class PaginaUsuario extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jButton2)))
                 .addGap(38, 38, 38)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addGap(30, 30, 30))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                        .addGap(30, 30, 30))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3)
+                        .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 223, Short.MAX_VALUE)
-                .addComponent(Atualizar)
-                .addGap(144, 144, 144))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(140, 140, 140))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
@@ -123,9 +142,9 @@ public class PaginaUsuario extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(Atualizar)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(jButton4)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
@@ -138,9 +157,24 @@ public class PaginaUsuario extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void AtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtualizarActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if (tfPesquisar.getText().isEmpty()) {
+            atualizarTabela();
+
+        }else if(idao.pesquisarPorNome(tfPesquisar.getText()).isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Pesquisa não encontrada!");
+            InstituicaoTabelModel tabela = new InstituicaoTabelModel(idao.pesquisarPorNome(tfPesquisar.getText()));
+            tabelaUsua.setModel(tabela);
+        }else {
+            InstituicaoTabelModel tabela = new InstituicaoTabelModel(idao.pesquisarPorNome(tfPesquisar.getText()));
+            tabelaUsua.setModel(tabela);
+        }
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         atualizarTabela();
-    }//GEN-LAST:event_AtualizarActionPerformed
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,14 +212,16 @@ public class PaginaUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Atualizar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaUsua;
+    private javax.swing.JTextField tfPesquisar;
     // End of variables declaration//GEN-END:variables
 }
