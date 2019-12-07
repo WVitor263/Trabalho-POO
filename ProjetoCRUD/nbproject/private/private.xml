@@ -8,8 +8,10 @@
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/Trabalho-POO/ProjetoCRUD/src/univs/edu/documentos/Identidade.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/Trabalho-POO/ProjetoCRUD/src/univs/edu/documentosDAO/TituloDeEleitorDAO.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/Trabalho-POO/ProjetoCRUD/src/univs/edu/telaInfoDocumentos/TelaInfoCpf.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/Trabalho-POO/ProjetoCRUD/src/univs/edu/telasUsuario/PaginaUsuario.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/Trabalho-POO/ProjetoCRUD/src/univs/edu/documentosDAO/CpfDAO.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/Trabalho-POO/ProjetoCRUD/src/univs/edu/telaInfoDocumentos/TelaInfoTitulo.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/Trabalho-POO/ProjetoCRUD/src/univs/edu/instituicao/Instituicao.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/Trabalho-POO/ProjetoCRUD/src/univs/edu/usuario/Usuario.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/Trabalho-POO/ProjetoCRUD/src/univs/edu/usuario/UsuarioDAO.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/Trabalho-POO/ProjetoCRUD/src/univs/edu/documentosDAO/IdentidadeDAO.java</file>
@@ -17,6 +19,7 @@
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/Trabalho-POO/ProjetoCRUD/src/univs/edu/telasUsuario/InstituicaoInfo.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/Trabalho-POO/ProjetoCRUD/src/univs/edu/documentosDAO/CarteiraDeTrabalhoDAO.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/Trabalho-POO/ProjetoCRUD/src/univs/edu/documentos/TituloDeEleitor.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/Trabalho-POO/ProjetoCRUD/src/univs/edu/telasInstituicao/CadastroInstituicao.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/Trabalho-POO/ProjetoCRUD/src/univs/edu/telaInfoDocumentos/TelaInfoIdentidade.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/Trabalho-POO/ProjetoCRUD/src/univs/edu/telasCadastroDocumentos/MenuDocumentos.java</file>
         </group>

@@ -300,7 +300,7 @@ public class CadastroInstituicao extends javax.swing.JFrame {
 
             instituicao.setCpf(tfCpf.isSelected());
             instituicao.setIdentidade(tfIdentidade.isSelected());
-            instituicao.setCarteiraDeTrabalho(tfCarteira.isSelected());
+            instituicao.setCarteira(tfCarteira.isSelected());
             instituicao.setTitulo(tfTitulo.isSelected());
 
             dao.salvar(instituicao);

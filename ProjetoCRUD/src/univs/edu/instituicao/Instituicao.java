@@ -34,7 +34,7 @@ public class Instituicao {
     @Column(length = 100, nullable = false)
     private boolean identidade;
     @Column(length = 100, nullable = false)
-    private boolean carteiraDeTrabalho;
+    private boolean carteira;
     @Column(length = 100, nullable = false)
     private boolean cpf;
     @Column(length = 100, nullable = false)
@@ -110,12 +110,12 @@ public class Instituicao {
         this.identidade = identidade;
     }
 
-    public boolean isCarteiraDeTrabalho() {
-        return carteiraDeTrabalho;
+    public boolean isCarteira() {
+        return carteira;
     }
 
-    public void setCarteiraDeTrabalho(boolean carteiraDeTrabalho) {
-        this.carteiraDeTrabalho = carteiraDeTrabalho;
+    public void setCarteira(boolean carteira) {
+        this.carteira = carteira;
     }
 
     public boolean isCpf() {
