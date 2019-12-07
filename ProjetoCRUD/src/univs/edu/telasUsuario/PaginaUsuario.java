@@ -53,6 +53,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
         tfPesquisar = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/telaUsuario.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -100,11 +101,18 @@ public class PaginaUsuario extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setText("Informações");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
@@ -121,11 +129,13 @@ public class PaginaUsuario extends javax.swing.JFrame {
                         .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3)
-                        .addContainerGap())))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(140, 140, 140))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(jButton4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton5)
+                        .addGap(49, 49, 49))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,7 +153,9 @@ public class PaginaUsuario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton4)
+                    .addComponent(jButton5))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -161,11 +173,11 @@ public class PaginaUsuario extends javax.swing.JFrame {
         if (tfPesquisar.getText().isEmpty()) {
             atualizarTabela();
 
-        }else if(idao.pesquisarPorNome(tfPesquisar.getText()).isEmpty()) {
+        } else if (idao.pesquisarPorNome(tfPesquisar.getText()).isEmpty()) {
             JOptionPane.showMessageDialog(null, "Pesquisa não encontrada!");
             InstituicaoTabelModel tabela = new InstituicaoTabelModel(idao.pesquisarPorNome(tfPesquisar.getText()));
             tabelaUsua.setModel(tabela);
-        }else {
+        } else {
             InstituicaoTabelModel tabela = new InstituicaoTabelModel(idao.pesquisarPorNome(tfPesquisar.getText()));
             tabelaUsua.setModel(tabela);
         }
@@ -175,6 +187,23 @@ public class PaginaUsuario extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         atualizarTabela();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        int linha = tabelaUsua.getSelectedRow();
+        if (linha != -1) {
+            String email = (String) tabelaUsua.getValueAt(linha, 2);
+                idao.pesquisar(email);
+                instituicao.infoinstituicao = idao.pesquisar(email);
+                
+                InstituicaoInfo info = new InstituicaoInfo();
+                info.setVisible(true);
+                dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione uma Instituição");
+        }
+        
+
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,6 +246,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

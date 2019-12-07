@@ -7,7 +7,6 @@ package univs.edu.telasUsuario;
 
 import javax.swing.JOptionPane;
 import univs.edu.usuario.Usuario;
-import static univs.edu.usuario.Usuario.usuario;
 import univs.edu.usuario.UsuarioDAO;
 
 /**
