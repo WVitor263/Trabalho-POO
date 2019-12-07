@@ -83,6 +83,11 @@ public class TelaUsuario extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Senha.:");
 
+        tfEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfEmailFocusLost(evt);
+            }
+        });
         tfEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfEmailActionPerformed(evt);
@@ -220,24 +225,24 @@ public class TelaUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
         if (tfNome.getText().isEmpty() || tfSenha.getText().isEmpty() || tfEmail.getText().isEmpty()
                 || tfCidade.getText().isEmpty() || tfNumero.getText().isEmpty() || tfRua.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
-        } else {
-            usuario.setNomeUsuario(tfNome.getText());
-            usuario.setEmail(tfEmail.getText());
-            usuario.setSenha(tfSenha.getText());
-            usuario.setCidadeUsuario(tfCidade.getText());
-            usuario.setRuaUsuario(tfRua.getText());
-            usuario.setNumeroUsuario(tfNumero.getText());
-            dao.salvar(usuario);
-
-            LoginUsuario login = new LoginUsuario();
-            login.setVisible(true);
-            dispose();
-
-
         }
+
+        usuario.setNomeUsuario(tfNome.getText());
+        usuario.setEmail(tfEmail.getText());
+        usuario.setSenha(tfSenha.getText());
+        usuario.setCidadeUsuario(tfCidade.getText());
+        usuario.setRuaUsuario(tfRua.getText());
+        usuario.setNumeroUsuario(tfNumero.getText());
+        dao.salvar(usuario);
+
+        LoginUsuario login = new LoginUsuario();
+        login.setVisible(true);
+        dispose();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -249,6 +254,14 @@ public class TelaUsuario extends javax.swing.JFrame {
     private void tfEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfEmailActionPerformed
+
+    private void tfEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailFocusLost
+        if (dao.pesquisar(tfEmail.getText()) != null) {
+            JOptionPane.showMessageDialog(null, "Email ja cadastrado!");
+            tfEmail.setText("");
+            tfEmail.grabFocus();
+        }
+    }//GEN-LAST:event_tfEmailFocusLost
 
     /**
      * @param args the command line arguments

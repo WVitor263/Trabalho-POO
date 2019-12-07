@@ -60,11 +60,10 @@ public class CadastroInstituicao extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jRadioReservista = new javax.swing.JRadioButton();
-        jRadioCpf = new javax.swing.JRadioButton();
-        jRadioIndetidade = new javax.swing.JRadioButton();
-        jRadioCarteira = new javax.swing.JRadioButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        tfIdentidade = new javax.swing.JCheckBox();
+        tfCarteira = new javax.swing.JCheckBox();
+        tfCpf = new javax.swing.JCheckBox();
+        tfTitulo = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -128,35 +127,23 @@ public class CadastroInstituicao extends javax.swing.JFrame {
             }
         });
 
-        jRadioReservista.setText("Resevista");
-        jRadioReservista.addActionListener(new java.awt.event.ActionListener() {
+        tfIdentidade.setText("Identidade");
+        tfIdentidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioReservistaActionPerformed(evt);
+                tfIdentidadeActionPerformed(evt);
             }
         });
 
-        jRadioCpf.setText("CPF");
-        jRadioCpf.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jRadioCpfMouseClicked(evt);
-            }
-        });
-        jRadioCpf.addActionListener(new java.awt.event.ActionListener() {
+        tfCarteira.setText("Carteira de Trabalho");
+
+        tfCpf.setText("CPF");
+        tfCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioCpfActionPerformed(evt);
+                tfCpfActionPerformed(evt);
             }
         });
 
-        jRadioIndetidade.setText("Identidade");
-        jRadioIndetidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioIndetidadeActionPerformed(evt);
-            }
-        });
-
-        jRadioCarteira.setText("Carteira de Trabalho");
-
-        jCheckBox1.setText("jCheckBox1");
+        tfTitulo.setText("Título de Eleitor");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -202,21 +189,26 @@ public class CadastroInstituicao extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(102, 102, 102)
                         .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addGap(18, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jRadioCarteira)
-                    .addComponent(jRadioCpf)
-                    .addComponent(jRadioIndetidade)
-                    .addComponent(jRadioReservista))
-                .addGap(11, 11, 11))
+                    .addComponent(tfTitulo)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(tfCpf)
+                            .addGap(86, 86, 86))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(tfIdentidade)
+                            .addGap(54, 54, 54))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(tfCarteira)
+                            .addContainerGap()))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -233,26 +225,23 @@ public class CadastroInstituicao extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfCidadeInstituicao, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel11)
-                            .addComponent(tfRuaInstituicao, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE))
+                            .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckBox1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioCarteira)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioCpf)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioIndetidade)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioReservista)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)))
+                        .addComponent(tfCpf)
+                        .addGap(15, 15, 15)
+                        .addComponent(tfIdentidade)
+                        .addGap(18, 18, 18)
+                        .addComponent(tfCarteira)
+                        .addGap(18, 18, 18)
+                        .addComponent(tfTitulo)
+                        .addGap(10, 10, 10)))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfCidadeInstituicao, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel11)
+                    .addComponent(tfRuaInstituicao, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -303,6 +292,12 @@ public class CadastroInstituicao extends javax.swing.JFrame {
             instituicao.setRuaInstituicao(tfRuaInstituicao.getText());
             instituicao.setSenha(tfSenhaInstituicao.getText());
             instituicao.setTelefone(tfTelefone.getText());
+
+            instituicao.setCpf(tfCpf.isSelected());
+            instituicao.setIdentidade(tfIdentidade.isSelected());
+            instituicao.setCarteiraDeTrabalho(tfCarteira.isSelected());
+            instituicao.setTitulo(tfTitulo.isSelected());
+
             dao.salvar(instituicao);
 
             LoginInstituicao login = new LoginInstituicao();
@@ -311,21 +306,13 @@ public class CadastroInstituicao extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jRadioReservistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioReservistaActionPerformed
+    private void tfIdentidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIdentidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioReservistaActionPerformed
+    }//GEN-LAST:event_tfIdentidadeActionPerformed
 
-    private void jRadioCpfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioCpfMouseClicked
+    private void tfCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCpfActionPerformed
 
-    }//GEN-LAST:event_jRadioCpfMouseClicked
-
-    private void jRadioCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioCpfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioCpfActionPerformed
-
-    private void jRadioIndetidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioIndetidadeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioIndetidadeActionPerformed
+    }//GEN-LAST:event_tfCpfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -366,7 +353,6 @@ public class CadastroInstituicao extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -374,15 +360,15 @@ public class CadastroInstituicao extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JRadioButton jRadioCarteira;
-    private javax.swing.JRadioButton jRadioCpf;
-    private javax.swing.JRadioButton jRadioIndetidade;
-    private javax.swing.JRadioButton jRadioReservista;
+    private javax.swing.JCheckBox tfCarteira;
     private javax.swing.JTextField tfCidadeInstituicao;
+    private javax.swing.JCheckBox tfCpf;
     private javax.swing.JTextField tfEmailInstituicao;
+    private javax.swing.JCheckBox tfIdentidade;
     private javax.swing.JTextField tfNomeInstituicao;
     private javax.swing.JTextField tfRuaInstituicao;
     private javax.swing.JPasswordField tfSenhaInstituicao;
     private javax.swing.JTextField tfTelefone;
+    private javax.swing.JCheckBox tfTitulo;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,7 +5,7 @@
  */
 package univs.edu.telasUsuario;
 
-import javax.swing.JOptionPane;
+
 import univs.edu.instituicao.Instituicao;
 import univs.edu.instituicao.InstituicaoDAO;
 import univs.edu.instituicao.InstituicaoTabelModel;
@@ -23,12 +23,12 @@ public class PaginaUsuario extends javax.swing.JFrame {
 
     public PaginaUsuario() {
         initComponents();
-        
+        atualizarTabela();
     }
 
     public void atualizarTabela() {
-        usuario = Usuario.usuario;
-        InstituicaoTabelModel tabela = new InstituicaoTabelModel(idao.pesquisar(usuario.getCidadeUsuario()));
+
+        InstituicaoTabelModel tabela = new InstituicaoTabelModel(idao.pesquisarPorCidade(Usuario.usuario.getCidadeUsuario()));
         tabelaUsua.setModel(tabela);
 
     }
@@ -50,13 +50,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaUsua = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jRadioCpf = new javax.swing.JRadioButton();
-        jRadioIndetidade = new javax.swing.JRadioButton();
-        jRadioCarteira = new javax.swing.JRadioButton();
-        jRadioReservista = new javax.swing.JRadioButton();
-        jButton4 = new javax.swing.JButton();
+        Atualizar = new javax.swing.JButton();
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/telaUsuario.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -90,54 +84,10 @@ public class PaginaUsuario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabelaUsua);
 
-        jButton3.setText("Pesquisar");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
-            }
-        });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Atualizar.setText("Atualizar");
+        Atualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(jRadioCpf);
-        jRadioCpf.setText("CPF");
-        jRadioCpf.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jRadioCpfMouseClicked(evt);
-            }
-        });
-        jRadioCpf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioCpfActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(jRadioIndetidade);
-        jRadioIndetidade.setText("Identidade");
-        jRadioIndetidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioIndetidadeActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(jRadioCarteira);
-        jRadioCarteira.setText("Carteira de Trabalho");
-
-        buttonGroup1.add(jRadioReservista);
-        jRadioReservista.setText("Resevista");
-        jRadioReservista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioReservistaActionPerformed(evt);
-            }
-        });
-
-        jButton4.setText("Atualizar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                AtualizarActionPerformed(evt);
             }
         });
 
@@ -147,62 +97,35 @@ public class PaginaUsuario extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(21, 21, 21)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jButton2))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jRadioIndetidade)
-                                .addComponent(jRadioCpf)
-                                .addComponent(jRadioCarteira))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jRadioReservista)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(jButton2)))
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(146, 146, 146))
+                .addGap(0, 223, Short.MAX_VALUE)
+                .addComponent(Atualizar)
+                .addGap(144, 144, 144))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jButton3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jButton2)
-                        .addGap(31, 31, 31)
-                        .addComponent(jRadioCpf)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioIndetidade)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioCarteira)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioReservista))
+                        .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jButton4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(Atualizar)
+                .addContainerGap())
         );
 
         pack();
@@ -215,40 +138,9 @@ public class PaginaUsuario extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jRadioReservistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioReservistaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioReservistaActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
-
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jRadioCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioCpfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioCpfActionPerformed
-
-    private void jRadioCpfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioCpfMouseClicked
-
-    }//GEN-LAST:event_jRadioCpfMouseClicked
-
-    private void jRadioIndetidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioIndetidadeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioIndetidadeActionPerformed
-
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        if (jRadioCarteira.isSelected() || jRadioCpf.isSelected() || jRadioIndetidade.isSelected() || jRadioReservista.isSelected()) {
-            if (Usuario.usuario.getCidadeUsuario().equals(Instituicao.instituicao.getCidadeInstituicao())) {
-
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Selecione caixa");
-        }
-    }//GEN-LAST:event_jButton3MouseClicked
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void AtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtualizarActionPerformed
         atualizarTabela();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_AtualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,20 +178,14 @@ public class PaginaUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Atualizar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JRadioButton jRadioCarteira;
-    private javax.swing.JRadioButton jRadioCpf;
-    private javax.swing.JRadioButton jRadioIndetidade;
-    private javax.swing.JRadioButton jRadioReservista;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tabelaUsua;
     // End of variables declaration//GEN-END:variables
 }

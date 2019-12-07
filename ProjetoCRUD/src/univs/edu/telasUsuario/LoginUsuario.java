@@ -121,10 +121,10 @@ public class LoginUsuario extends javax.swing.JFrame {
         } else {
             usuario = dao.pesquisar(tfEmail.getText(), tfSenha.getText());
             if (usuario != null) {
+                Usuario.usuario = usuario;
                 PaginaUsuario tela = new PaginaUsuario();
                 tela.setVisible(true);
                 dispose();
-                Usuario.usuario = usuario;
 
             } else {
                 JOptionPane.showMessageDialog(null, "Dados Invalidos!");

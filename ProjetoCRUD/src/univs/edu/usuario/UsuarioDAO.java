@@ -42,16 +42,17 @@ public class UsuarioDAO {
         return usuario;
 
     }
-    public Usuario pesquisar(String email,String senha){
+
+    public Usuario pesquisar(String email, String senha) {
         sessao = HibernateUtil.
                 getSessionFactory().openSession();
         transacao = sessao.beginTransaction();
         Usuario usuario = (Usuario) sessao.
                 createCriteria(Usuario.class).add(
                 Restrictions.eq("email", email)).add(
-                Restrictions.eq("senha",senha))
+                Restrictions.eq("senha", senha))
                 .uniqueResult();
-        return usuario;      
+        return usuario;
     }
 
     public List<Usuario> pesquisar() {
@@ -61,7 +62,14 @@ public class UsuarioDAO {
         return usuarios;
 
     }
-   
-    }
-    
 
+    public Usuario pesquisar(String email) {
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        transacao = sessao.beginTransaction();
+        Usuario usuario = (Usuario) sessao.createCriteria(Usuario.class).add(Restrictions.eq("email", email)).uniqueResult();
+        sessao.close();
+        return usuario;
+
+    }
+
+}

@@ -63,11 +63,20 @@ public class InstituicaoDAO {
         return instituicao;      
     }
    
-   public List<Instituicao> pesquisar(String cidade) {
+   public List<Instituicao> pesquisarPorCidade(String cidade) {
         sessao = HibernateUtil.getSessionFactory().openSession();
         transacao = sessao.beginTransaction();
         List<Instituicao> instituicoes = sessao.createCriteria(Instituicao.class).add(
                 Restrictions.eq("cidadeInstituicao", cidade)).list();
+        return instituicoes;
+        
+    }
+   
+    public List<Instituicao> pesquisarPorNome(String nome) {
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        transacao = sessao.beginTransaction();
+        List<Instituicao> instituicoes = sessao.createCriteria(Instituicao.class).add(
+                Restrictions.eq("nomeInstituicao", nome)).list();
         return instituicoes;
         
     }

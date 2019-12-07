@@ -18,7 +18,6 @@
         <mapping class="univs.edu.instituicao.Instituicao"/>
         <mapping class="univs.edu.documentos.Identidade"/>
         <mapping class="univs.edu.documentos.Cpf"/>
-        <mapping class="univs.edu.documentos.CertidaoDeNascimento"/>
         <mapping class="univs.edu.documentos.CarteiraDeTrabalho"/>
         <mapping class="univs.edu.documentos.TituloDeEleitor"/>
         

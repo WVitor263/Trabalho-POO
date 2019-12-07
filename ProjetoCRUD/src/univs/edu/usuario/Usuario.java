@@ -33,6 +33,8 @@ public class Usuario {
     
     @Transient
     public static Usuario usuario;
+    
+   
 
     public int getIdUsuario() {
         return idUsuario;
