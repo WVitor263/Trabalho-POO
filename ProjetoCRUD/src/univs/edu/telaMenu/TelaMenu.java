@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package univs.edu.telasInstituicao;
+package univs.edu.telaMenu;
 
+import univs.edu.telasInstituicao.LoginInstituicao;
 import univs.edu.telasUsuario.LoginUsuario;
 import univs.edu.usuario.Usuario;
 

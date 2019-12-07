@@ -5,6 +5,7 @@
  */
 package univs.edu.telasUsuario;
 
+import javax.swing.JOptionPane;
 import univs.edu.usuario.Usuario;
 import univs.edu.usuario.UsuarioDAO;
 
@@ -131,16 +132,21 @@ public class ConfigUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        LoginUsuario login = new LoginUsuario();
-        login.setVisible(true);
-        dispose();
+        if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir sair?", "Sair", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            LoginUsuario login = new LoginUsuario();
+            login.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        dao.excluir(Usuario.usuario);
-        LoginUsuario tela = new LoginUsuario();
-        tela.setVisible(true);
-        dispose();
+        if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir sua conta?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            dao.excluir(Usuario.usuario);
+            JOptionPane.showMessageDialog(null, "Exclusão Concluída!");
+            LoginUsuario tela = new LoginUsuario();
+            tela.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**

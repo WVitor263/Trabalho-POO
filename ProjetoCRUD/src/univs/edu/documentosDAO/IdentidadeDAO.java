@@ -24,4 +24,12 @@ public class IdentidadeDAO {
         transacao.commit();
         sessao.close();
     }
+
+    public Identidade pesquisar() {
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        transacao = sessao.beginTransaction();
+        Identidade identidade = (Identidade) sessao.createCriteria(Identidade.class).uniqueResult();
+        return identidade;
+
+    }
 }

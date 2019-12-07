@@ -22,6 +22,7 @@ public class CarteiraDeTrabalho {
     private String idadeMinima;
     @Column(length = 100, nullable = false)
     private String validade;
+    
 
     public String getPeriodoEmissao() {
         return periodoEmissao;

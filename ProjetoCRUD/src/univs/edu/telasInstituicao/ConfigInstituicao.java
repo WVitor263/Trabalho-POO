@@ -5,17 +5,21 @@
  */
 package univs.edu.telasInstituicao;
 
+import javax.swing.JOptionPane;
 import univs.edu.instituicao.Instituicao;
 import univs.edu.instituicao.InstituicaoDAO;
+import univs.edu.usuario.Usuario;
 
 /**
  *
  * @author Lucas007
  */
 public class ConfigInstituicao extends javax.swing.JFrame {
+
     Instituicao instituicao = new Instituicao();
     InstituicaoDAO dao = new InstituicaoDAO();
-        
+    Usuario usuario = new Usuario();
+
     public ConfigInstituicao() {
         initComponents();
     }
@@ -73,22 +77,17 @@ public class ConfigInstituicao extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4))))
+                .addGap(117, 117, 117)
+                .addComponent(jLabel1)
                 .addContainerGap(104, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addGap(132, 132, 132))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton4)
+                    .addComponent(jButton3)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(120, 120, 120))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,9 +100,9 @@ public class ConfigInstituicao extends javax.swing.JFrame {
                 .addComponent(jButton2)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3)
-                .addGap(13, 13, 13)
+                .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -111,14 +110,17 @@ public class ConfigInstituicao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        dao.excluir(Instituicao.instituicao);
-        LoginInstituicao login = new  LoginInstituicao();
-        login.setVisible(true);
-        dispose();
+        if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir esta conta?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            dao.excluir(Instituicao.instituicao);
+            JOptionPane.showMessageDialog(null, "Exclusão Concluída!");
+            LoginInstituicao login = new LoginInstituicao();
+            login.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         EditarInstituicao editar = new EditarInstituicao();
         editar.atualizarCampos();
         editar.setVisible(true);
@@ -132,9 +134,11 @@ public class ConfigInstituicao extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir sair?", "Sair", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
         LoginInstituicao login = new LoginInstituicao();
         login.setVisible(true);
         dispose();
+       }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**

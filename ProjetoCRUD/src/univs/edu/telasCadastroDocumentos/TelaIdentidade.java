@@ -3,22 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package univs.edu.telasDocumentos;
+package univs.edu.telasCadastroDocumentos;
 
 import javax.swing.JOptionPane;
-import univs.edu.documentos.CarteiraDeTrabalho;
-import univs.edu.documentosDAO.CarteiraDeTrabalhoDAO;
+import univs.edu.documentos.Identidade;
+import univs.edu.documentosDAO.IdentidadeDAO;
+import univs.edu.telasUsuario.InstituicaoInfo;
 
 /**
  *
- * @author GGrio
+ * @author weliton
  */
-public class TelaCarteira extends javax.swing.JFrame {
+public class TelaIdentidade extends javax.swing.JFrame {
 
-    CarteiraDeTrabalho carteira = new CarteiraDeTrabalho();
-    CarteiraDeTrabalhoDAO dao = new CarteiraDeTrabalhoDAO();
-    
-    public TelaCarteira() {
+    Identidade identidade = new Identidade();
+    IdentidadeDAO dao = new IdentidadeDAO();
+
+    /**
+     * Creates new form Documento
+     */
+    public TelaIdentidade() {
         initComponents();
     }
 
@@ -31,20 +35,27 @@ public class TelaCarteira extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         tfValidade = new javax.swing.JTextField();
         tfIdadeM = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        tfPrazEntrega = new javax.swing.JTextField();
         tfPeriodoEm = new javax.swing.JTextField();
+        tfPrazEntrega = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        tfDocuNecess = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tfDocuNecess = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setText("Periodo de Emissao.:");
+
+        jLabel13.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel13.setText("Documentos Necessarios.:");
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel2.setText("Validade.:");
@@ -55,15 +66,15 @@ public class TelaCarteira extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel11.setText("Idade Minima.:");
 
-        tfPrazEntrega.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfPrazEntregaActionPerformed(evt);
-            }
-        });
-
         tfPeriodoEm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfPeriodoEmActionPerformed(evt);
+            }
+        });
+
+        tfPrazEntrega.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfPrazEntregaActionPerformed(evt);
             }
         });
 
@@ -74,62 +85,60 @@ public class TelaCarteira extends javax.swing.JFrame {
             }
         });
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel12.setText("Periodo de Emissao.:");
-
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel1.setText("Cateira De Trabalho");
+        jLabel1.setText("Identidade");
 
-        jLabel13.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel13.setText("Documentos Necessarios.:");
+        tfDocuNecess.setColumns(20);
+        tfDocuNecess.setRows(5);
+        jScrollPane1.setViewportView(tfDocuNecess);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfPeriodoEm, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12)
-                    .addComponent(tfPrazEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(tfDocuNecess)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfPeriodoEm, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12)
+                            .addComponent(tfPrazEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(jButton1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(156, 156, 156)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(tfValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfIdadeM, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel11))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(142, 142, 142))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(156, 156, 156)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2)
+                                            .addComponent(tfValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tfIdadeM, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel11)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(29, 29, 29)
+                                        .addComponent(jButton1)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(221, 221, 221)
+                        .addComponent(jLabel1)))
+                .addGap(53, 53, 53))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel1)
-                        .addGap(54, 54, 54)
+                        .addGap(61, 61, 61)
                         .addComponent(jLabel12)
                         .addGap(7, 7, 7)
-                        .addComponent(tfPeriodoEm, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(tfPeriodoEm, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
+                        .addGap(66, 66, 66)
                         .addComponent(jLabel11)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -145,11 +154,11 @@ public class TelaCarteira extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(20, 20, 20)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfDocuNecess, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(tfValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addComponent(tfValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addComponent(jButton1)
                 .addContainerGap())
         );
 
@@ -157,26 +166,27 @@ public class TelaCarteira extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfPrazEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPrazEntregaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfPrazEntregaActionPerformed
-
     private void tfPeriodoEmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPeriodoEmActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfPeriodoEmActionPerformed
 
+    private void tfPrazEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPrazEntregaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfPrazEntregaActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (tfPeriodoEm.getText().isEmpty() || tfPrazEntrega.getText().isEmpty() || tfIdadeM.getText().isEmpty()
-            || tfValidade.getText().isEmpty() || tfDocuNecess.getText().isEmpty()) {
+                || tfValidade.getText().isEmpty() || tfDocuNecess.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
         } else {
 
-            carteira.setDocuNecessarios(tfDocuNecess.getText());
-            carteira.setIdadeMinima(tfIdadeM.getText());
-            carteira.setPeriodoEmissao(tfPeriodoEm.getText());
-            carteira.setPrazoEntrega(tfPrazEntrega.getText());
-            carteira.setValidade(tfValidade.getText());
-            dao.salvar(carteira);
+            identidade.setDocuNecessarios(tfDocuNecess.getText());
+            identidade.setIdadeMinima(tfIdadeM.getText());
+            identidade.setPeriodoEmissao(tfPeriodoEm.getText());
+            identidade.setPrazoEntrega(tfPrazEntrega.getText());
+            identidade.setValidade(tfValidade.getText());
+            dao.salvar(identidade);
+
             dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -198,20 +208,21 @@ public class TelaCarteira extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCarteira.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaIdentidade.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCarteira.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaIdentidade.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCarteira.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaIdentidade.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCarteira.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaIdentidade.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCarteira().setVisible(true);
+                new TelaIdentidade().setVisible(true);
             }
         });
     }
@@ -224,7 +235,8 @@ public class TelaCarteira extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField tfDocuNecess;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea tfDocuNecess;
     private javax.swing.JTextField tfIdadeM;
     private javax.swing.JTextField tfPeriodoEm;
     private javax.swing.JTextField tfPrazEntrega;

@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package univs.edu.telasDocumentos;
+package univs.edu.telasCadastroDocumentos;
 
 import javax.swing.JOptionPane;
 import univs.edu.documentos.Cpf;
 import univs.edu.documentosDAO.CpfDAO;
+import univs.edu.telasUsuario.InstituicaoInfo;
 
 /**
  *
@@ -17,7 +18,7 @@ public class TelaCpf extends javax.swing.JFrame {
 
     Cpf cpf = new Cpf();
     CpfDAO dao = new CpfDAO();
-    
+
     public TelaCpf() {
         initComponents();
     }
@@ -33,7 +34,6 @@ public class TelaCpf extends javax.swing.JFrame {
 
         tfPrazEntrega = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        tfDocuNecess = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -43,6 +43,8 @@ public class TelaCpf extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         tfPeriodoEm = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tfDocuNecess = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,6 +85,10 @@ public class TelaCpf extends javax.swing.JFrame {
             }
         });
 
+        tfDocuNecess.setColumns(20);
+        tfDocuNecess.setRows(5);
+        jScrollPane1.setViewportView(tfDocuNecess);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,20 +103,17 @@ public class TelaCpf extends javax.swing.JFrame {
                             .addComponent(tfPrazEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(tfDocuNecess)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13))
+                                .addGap(49, 49, 49)
+                                .addComponent(jButton1)
+                                .addGap(44, 44, 44)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(29, 29, 29)
-                                        .addComponent(jButton1))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(156, 156, 156)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel2)
-                                            .addComponent(tfValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(tfIdadeM, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel11)))))))
+                                    .addComponent(jLabel2)
+                                    .addComponent(tfValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfIdadeM, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(221, 221, 221)
                         .addComponent(jLabel1)))
@@ -126,9 +129,7 @@ public class TelaCpf extends javax.swing.JFrame {
                         .addGap(61, 61, 61)
                         .addComponent(jLabel12)
                         .addGap(7, 7, 7)
-                        .addComponent(tfPeriodoEm, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(tfPeriodoEm, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(66, 66, 66)
                         .addComponent(jLabel11)
@@ -146,12 +147,15 @@ public class TelaCpf extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(20, 20, 20)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfDocuNecess, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(tfValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
+                        .addComponent(tfValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(67, 67, 67))))
         );
 
         pack();
@@ -164,7 +168,7 @@ public class TelaCpf extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (tfPeriodoEm.getText().isEmpty() || tfPrazEntrega.getText().isEmpty() || tfIdadeM.getText().isEmpty()
-            || tfValidade.getText().isEmpty() || tfDocuNecess.getText().isEmpty()) {
+                || tfValidade.getText().isEmpty() || tfDocuNecess.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
         } else {
 
@@ -225,7 +229,8 @@ public class TelaCpf extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField tfDocuNecess;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea tfDocuNecess;
     private javax.swing.JTextField tfIdadeM;
     private javax.swing.JTextField tfPeriodoEm;
     private javax.swing.JTextField tfPrazEntrega;

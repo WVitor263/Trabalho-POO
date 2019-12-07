@@ -30,11 +30,9 @@ public class Usuario {
 
     @Column(length = 100, nullable = false)
     private String numeroUsuario;
-    
+
     @Transient
     public static Usuario usuario;
-    
-   
 
     public int getIdUsuario() {
         return idUsuario;

@@ -4,11 +4,10 @@ import univs.edu.documentos.CarteiraDeTrabalho;
 import javax.swing.JOptionPane;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import univs.edu.documentos.Cpf;
 import univs.edu.util.HibernateUtil;
 
-
 public class CarteiraDeTrabalhoDAO {
+
     private Session sessao;
     private Transaction transacao;
 
@@ -24,5 +23,13 @@ public class CarteiraDeTrabalhoDAO {
         }
         transacao.commit();
         sessao.close();
+    }
+
+    public CarteiraDeTrabalho pesquisar() {
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        transacao = sessao.beginTransaction();
+        CarteiraDeTrabalho carteira = (CarteiraDeTrabalho) sessao.createCriteria(CarteiraDeTrabalho.class).uniqueResult();
+        return carteira;
+
     }
 }

@@ -44,7 +44,7 @@ public class Instituicao {
     public static Instituicao instituicao;
     
     @Transient
-    public static Instituicao infoinstituicao;
+    public static Instituicao infoInstituicao;
 
     public int getIdInstituicao() {
         return idInstituicao;

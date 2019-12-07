@@ -7,10 +7,11 @@ import univs.edu.documentos.TituloDeEleitor;
 import univs.edu.util.HibernateUtil;
 
 public class TituloDeEleitorDAO {
+
     private Session sessao;
     private Transaction transacao;
 
-    public void salvar(TituloDeEleitor  titulo) {
+    public void salvar(TituloDeEleitor titulo) {
         sessao = HibernateUtil.getSessionFactory().openSession();
         transacao = sessao.beginTransaction();
         if (titulo.getIdTitulo() == 0) {
@@ -22,5 +23,13 @@ public class TituloDeEleitorDAO {
         }
         transacao.commit();
         sessao.close();
+    }
+
+    public TituloDeEleitor pesquisar() {
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        transacao = sessao.beginTransaction();
+        TituloDeEleitor titulo = (TituloDeEleitor) sessao.createCriteria(TituloDeEleitor.class).uniqueResult();
+        return titulo;
+
     }
 }

@@ -1,5 +1,6 @@
 package univs.edu.documentosDAO;
 
+
 import univs.edu.documentos.Cpf;
 import javax.swing.JOptionPane;
 import org.hibernate.Session;
@@ -22,5 +23,13 @@ public class CpfDAO {
         }
         transacao.commit();
         sessao.close();
+    }
+    
+    public Cpf pesquisar() {
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        transacao = sessao.beginTransaction();
+        Cpf cpf = (Cpf) sessao.createCriteria(Cpf.class).uniqueResult();
+        return cpf;
+
     }
 }
