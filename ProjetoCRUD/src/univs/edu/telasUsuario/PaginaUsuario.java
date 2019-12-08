@@ -87,6 +87,12 @@ public class PaginaUsuario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabelaUsua);
 
+        tfPesquisar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfPesquisarFocusLost(evt);
+            }
+        });
+
         jButton3.setText("Pesquisar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,6 +209,10 @@ public class PaginaUsuario extends javax.swing.JFrame {
         
 
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void tfPesquisarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPesquisarFocusLost
+        atualizarTabela();
+    }//GEN-LAST:event_tfPesquisarFocusLost
 
     /**
      * @param args the command line arguments

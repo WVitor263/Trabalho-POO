@@ -190,6 +190,9 @@
       </SubComponents>
     </Container>
     <Component class="javax.swing.JTextField" name="tfPesquisar">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="tfPesquisarFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton3">
       <Properties>
