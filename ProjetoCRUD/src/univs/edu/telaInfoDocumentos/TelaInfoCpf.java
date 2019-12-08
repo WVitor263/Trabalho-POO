@@ -7,7 +7,7 @@ package univs.edu.telaInfoDocumentos;
 
 import univs.edu.documentos.Cpf;
 import univs.edu.documentosDAO.CpfDAO;
-import univs.edu.telasUsuario.InstituicaoInfo;
+import univs.edu.telasUsuario.InfoInstituicao;
 
 /**
  *
@@ -17,13 +17,13 @@ public class TelaInfoCpf extends javax.swing.JFrame {
 
     Cpf cpf = new Cpf();
     CpfDAO dao = new CpfDAO();
-    
+
     public TelaInfoCpf() {
         initComponents();
         atualizarCampos();
     }
 
-    public void atualizarCampos(){
+    public void atualizarCampos() {
         cpf = dao.pesquisar();
         tfIdadeM.setText(cpf.getIdadeMinima());
         tfPeriodoEm.setText(cpf.getPeriodoEmissao());
@@ -31,7 +31,7 @@ public class TelaInfoCpf extends javax.swing.JFrame {
         tfValidade.setText(cpf.getValidade());
         tfDocuNecess.setText(cpf.getDocuNecessarios());
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -166,7 +166,7 @@ public class TelaInfoCpf extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        InstituicaoInfo info = new InstituicaoInfo();
+        InfoInstituicao info = new InfoInstituicao();
         info.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

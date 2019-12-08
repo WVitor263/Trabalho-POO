@@ -8,7 +8,6 @@ package univs.edu.telasCadastroDocumentos;
 import javax.swing.JOptionPane;
 import univs.edu.documentos.Cpf;
 import univs.edu.documentosDAO.CpfDAO;
-import univs.edu.telasUsuario.InstituicaoInfo;
 
 /**
  *

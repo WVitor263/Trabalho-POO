@@ -8,7 +8,6 @@ package univs.edu.telasCadastroDocumentos;
 import javax.swing.JOptionPane;
 import univs.edu.documentos.CarteiraDeTrabalho;
 import univs.edu.documentosDAO.CarteiraDeTrabalhoDAO;
-import univs.edu.telasUsuario.InstituicaoInfo;
 
 /**
  *

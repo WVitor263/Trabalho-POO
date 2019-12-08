@@ -7,7 +7,7 @@ package univs.edu.telaInfoDocumentos;
 
 import univs.edu.documentos.TituloDeEleitor;
 import univs.edu.documentosDAO.TituloDeEleitorDAO;
-import univs.edu.telasUsuario.InstituicaoInfo;
+import univs.edu.telasUsuario.InfoInstituicao;
 
 /**
  *
@@ -17,22 +17,21 @@ public class TelaInfoTitulo extends javax.swing.JFrame {
 
     TituloDeEleitor titulo = new TituloDeEleitor();
     TituloDeEleitorDAO dao = new TituloDeEleitorDAO();
-    
+
     public TelaInfoTitulo() {
         initComponents();
         atualizarCampos();
     }
 
-    public void atualizarCampos(){
-        titulo= dao.pesquisar();
+    public void atualizarCampos() {
+        titulo = dao.pesquisar();
         tfIdadeM.setText(titulo.getIdadeMinima());
         tfPeriodoEm.setText(titulo.getPeriodoEmissao());
         tfPrazEntrega.setText(titulo.getPrazoEntrega());
         tfValidade.setText(titulo.getValidade());
         tfDocuNecess.setText(titulo.getDocuNecessarios());
     }
-    
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -167,7 +166,7 @@ public class TelaInfoTitulo extends javax.swing.JFrame {
     }//GEN-LAST:event_tfPeriodoEmActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        InstituicaoInfo info = new InstituicaoInfo();
+        InfoInstituicao info = new InfoInstituicao();
         info.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

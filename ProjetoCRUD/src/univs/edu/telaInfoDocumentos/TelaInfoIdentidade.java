@@ -7,7 +7,7 @@ package univs.edu.telaInfoDocumentos;
 
 import univs.edu.documentos.Identidade;
 import univs.edu.documentosDAO.IdentidadeDAO;
-import univs.edu.telasUsuario.InstituicaoInfo;
+import univs.edu.telasUsuario.InfoInstituicao;
 
 /**
  *
@@ -17,14 +17,13 @@ public class TelaInfoIdentidade extends javax.swing.JFrame {
 
     Identidade identidade = new Identidade();
     IdentidadeDAO dao = new IdentidadeDAO();
-    
-    
+
     public TelaInfoIdentidade() {
         initComponents();
         atualizarCampos();
     }
 
-    public void atualizarCampos(){
+    public void atualizarCampos() {
         identidade = dao.pesquisar();
         tfIdadeM.setText(identidade.getIdadeMinima());
         tfPeriodoEm.setText(identidade.getPeriodoEmissao());
@@ -32,7 +31,7 @@ public class TelaInfoIdentidade extends javax.swing.JFrame {
         tfValidade.setText(identidade.getValidade());
         tfDocuNecess.setText(identidade.getDocuNecessarios());
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -172,7 +171,7 @@ public class TelaInfoIdentidade extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        InstituicaoInfo info = new InstituicaoInfo();
+        InfoInstituicao info = new InfoInstituicao();
         info.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

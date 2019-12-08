@@ -194,7 +194,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
             String email = (String) tabelaUsua.getValueAt(linha, 2);
                 idao.pesquisar(email);
                 Instituicao.infoInstituicao = idao.pesquisar(email);
-                InstituicaoInfo info = new InstituicaoInfo();
+                InfoInstituicao info = new InfoInstituicao();
                 info.setVisible(true);
                 dispose();
         } else {

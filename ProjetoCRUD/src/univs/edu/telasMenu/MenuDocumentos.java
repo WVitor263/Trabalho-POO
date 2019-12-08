@@ -3,7 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package univs.edu.telasCadastroDocumentos;
+package univs.edu.telasMenu;
+
+import univs.edu.telasCadastroDocumentos.TelaCarteira;
+import univs.edu.telasCadastroDocumentos.TelaCpf;
+import univs.edu.telasCadastroDocumentos.TelaIdentidade;
+import univs.edu.telasCadastroDocumentos.TelaTitulo;
 
 /**
  *
