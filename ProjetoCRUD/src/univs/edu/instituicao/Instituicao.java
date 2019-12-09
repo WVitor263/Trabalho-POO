@@ -32,6 +32,9 @@ public class Instituicao {
     private String telefone;
     
     @Column(length = 100, nullable = false)
+    private String cnpj;
+    
+    @Column(length = 100, nullable = false)
     private boolean identidade;
     @Column(length = 100, nullable = false)
     private boolean carteira;
@@ -132,6 +135,14 @@ public class Instituicao {
 
     public void setTitulo(boolean titulo) {
         this.titulo = titulo;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
     
 }
