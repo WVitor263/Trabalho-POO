@@ -108,16 +108,15 @@ public class LoginInstituicao extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(tfEmailInstituicao, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-                                    .addComponent(jLabel3)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(tfSenhaInstituicao)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(tfEmailInstituicao, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                                .addComponent(jLabel3)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(tfSenhaInstituicao))
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGap(36, 36, 36)
                             .addComponent(jButton2)
@@ -171,7 +170,7 @@ public class LoginInstituicao extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (tfEmailInstituicao.getText().isEmpty() || tfSenhaInstituicao.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Preencha Campos ");
+            JOptionPane.showMessageDialog(null, "Preencha Campos ","Campos",2);
         } else {
             instituicao = dao.pesquisar(tfEmailInstituicao.getText(), tfSenhaInstituicao.getText());
             if (instituicao != null) {
@@ -181,7 +180,7 @@ public class LoginInstituicao extends javax.swing.JFrame {
                 Instituicao.instituicao = instituicao;
 
             } else {
-                JOptionPane.showMessageDialog(null, "Dados Invalidos!");
+                JOptionPane.showMessageDialog(null, "Dados Invalidos!","Dados",2);
             }
 
         }

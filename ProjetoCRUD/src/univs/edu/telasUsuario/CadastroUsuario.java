@@ -246,7 +246,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
         if (tfNome.getText().isEmpty() || tfSenha.getText().isEmpty() || tfEmail.getText().isEmpty()
                 || tfCidade.getText().isEmpty() || tfNumero.getText().isEmpty() || tfRua.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
+            JOptionPane.showMessageDialog(null, "Preencha todos os Campos !","Campos",2);
         }else{
 
         usuario.setNomeUsuario(tfNome.getText());
@@ -275,7 +275,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
     private void tfEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailFocusLost
         if (dao.pesquisar(tfEmail.getText()) != null) {
-            JOptionPane.showMessageDialog(null, "Email ja cadastrado!");
+            JOptionPane.showMessageDialog(null, "Email ja cadastrado!","Email",1);
             tfEmail.setText("");
             tfEmail.grabFocus();
         }

@@ -135,7 +135,7 @@ public class EditarUsuario extends javax.swing.JFrame {
 
         if (tfEditarNome.getText().isEmpty() || tfEditarSenha.getText().isEmpty() || tfEditarEmail.getText().isEmpty()
                 || tfEditarCidade.getText().isEmpty() || tfEditarNumero.getText().isEmpty() || tfEditarRua.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
+            JOptionPane.showMessageDialog(null, "Preencha todos os Campos !","Campos",2);
         } else {
             usuario.setNomeUsuario(tfEditarNome.getText());
             usuario.setEmail(tfEditarEmail.getText());

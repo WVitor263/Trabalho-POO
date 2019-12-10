@@ -208,7 +208,7 @@ public class EditarInstituicao extends javax.swing.JFrame {
         if (tfEditarEmailInstituicao.getText().isEmpty() || tfEditarNomeInstituicao.getText().isEmpty()
                 || tfEditarCidadeInstituicao.getText().isEmpty() || tfEditarRuaInstituicao.getText().isEmpty() || tfEditarSenhaInstituicao.getText().isEmpty()
                 || tfEditarTelefone.getText().isEmpty() || tfEditarCnpj.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Preencha todos os Campos");
+            JOptionPane.showMessageDialog(null, "Preencha todos os Campos","Campos",2);
 
         } else {
             instituicao.setEmail(tfEditarEmailInstituicao.getText());

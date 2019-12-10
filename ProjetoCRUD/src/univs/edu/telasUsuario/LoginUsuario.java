@@ -152,7 +152,7 @@ public class LoginUsuario extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (tfEmail.getText().isEmpty() || tfSenha.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Preencha Campos ");
+            JOptionPane.showMessageDialog(null, "Preencha Campos ","Campos",2);
         } else {
             usuario = dao.pesquisar(tfEmail.getText(), tfSenha.getText());
             if (usuario != null) {
@@ -162,7 +162,7 @@ public class LoginUsuario extends javax.swing.JFrame {
                 dispose();
 
             } else {
-                JOptionPane.showMessageDialog(null, "Dados Invalidos!");
+                JOptionPane.showMessageDialog(null, "Dados Invalidos!","Dados",2);
             }
 
         }

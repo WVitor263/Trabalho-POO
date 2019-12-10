@@ -126,7 +126,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
             atualizarTabela();
 
         } else if (idao.pesquisarPorNome(tfPesquisar.getText()).isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Pesquisa não encontrada!");
+            JOptionPane.showMessageDialog(null, "Pesquisa não encontrada!","Campos",1);
             InstituicaoTabelModel tabela = new InstituicaoTabelModel(idao.pesquisarPorNome(tfPesquisar.getText()));
             tabelaUsua.setModel(tabela);
         } else {
@@ -150,7 +150,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
                 info.setVisible(true);
                 dispose();
         } else {
-            JOptionPane.showMessageDialog(null, "Selecione uma Instituição");
+            JOptionPane.showMessageDialog(null, "Selecione uma Instituição","Campos",1);
         }
         
 

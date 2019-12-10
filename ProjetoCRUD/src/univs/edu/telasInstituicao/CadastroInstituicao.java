@@ -325,7 +325,7 @@ public class CadastroInstituicao extends javax.swing.JFrame {
         if (tfEmailInstituicao.getText().isEmpty() || tfNomeInstituicao.getText().isEmpty()
                 || tfCidadeInstituicao.getText().isEmpty() || tfRuaInstituicao.getText().isEmpty() || tfSenhaInstituicao.getText().isEmpty()
                 || tfTelefone.getText().isEmpty() || tfCnpj.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Preencha todos os Campos");
+            JOptionPane.showMessageDialog(null, "Preencha todos os Campos","Campos",2);
 
         } else {
             instituicao.setEmail(tfEmailInstituicao.getText());
@@ -359,7 +359,7 @@ public class CadastroInstituicao extends javax.swing.JFrame {
 
     private void tfEmailInstituicaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailInstituicaoFocusLost
         if(dao.pesquisar(tfEmailInstituicao.getText()) != null){
-            JOptionPane.showMessageDialog(null, "Email ja cadastrado!");
+            JOptionPane.showMessageDialog(null, "Email ja cadastrado!","Email",2);
             tfEmailInstituicao.setText("");
             tfEmailInstituicao.grabFocus();
         }
