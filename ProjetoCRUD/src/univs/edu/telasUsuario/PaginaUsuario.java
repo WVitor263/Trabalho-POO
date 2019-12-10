@@ -76,7 +76,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabelaUsua);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 330, 155));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 330, 90));
 
         tfPesquisar.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
