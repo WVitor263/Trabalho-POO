@@ -92,7 +92,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\GGrio\OneDrive\Imagens\Saved Pictures\iiii (2).png"/>
+              <Image iconType="3" name="/univs/edu/imagens/UsuarioMenu.png"/>
             </Property>
           </Properties>
           <Events>
@@ -110,7 +110,7 @@
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\GGrio\OneDrive\Imagens\Saved Pictures\empresa.png"/>
+              <Image iconType="3" name="/univs/edu/imagens/EmpresaMenu.png"/>
             </Property>
           </Properties>
           <Events>

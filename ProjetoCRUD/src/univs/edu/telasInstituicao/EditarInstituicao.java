@@ -179,7 +179,7 @@ public class EditarInstituicao extends javax.swing.JFrame {
         jLabel5.setText("Documentos");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, 20));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\GGrio\\OneDrive\\Imagens\\Saved Pictures\\BackgroundEditarEmpresa.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/BackgroundEditarEmpresa.png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, 0, 580, 400));
 
         pack();
