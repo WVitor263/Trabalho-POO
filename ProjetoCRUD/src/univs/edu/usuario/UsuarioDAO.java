@@ -17,10 +17,10 @@ public class UsuarioDAO {
         transacao = sessao.beginTransaction();
         if (usuario.getIdUsuario() == 0) {
             sessao.save(usuario);
-            JOptionPane.showMessageDialog(null, "Usuario Cadastrado");
+            JOptionPane.showMessageDialog(null, "Cadastrado Concluído!");
         } else {
             sessao.update(usuario);
-            JOptionPane.showMessageDialog(null, "Usuario Editado");
+            JOptionPane.showMessageDialog(null, "Editado com Sucesso!");
         }
         transacao.commit();
         sessao.close();
